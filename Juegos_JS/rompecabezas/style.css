@@ -1,0 +1,15 @@
+body{background:#222; margin:0; padding:0; font-family:Helvetica;}
+
+span{color:#FFF;}
+
+div#content{margin-top:10px;}
+
+div#conf{padding-bottom:10px;}
+
+table{border:2px solid green; box-shadow:1px 1px 8px #00e800,-1px -1px 8px #00e800, 1px -1px 8px #00e800, -1px 1px 8px #00e800; -webkit-box-shadow:1px 1px 8px #00e800,-1px -1px 8px #00e800, 1px -1px 8px #00e800, -1px 1px 8px #00e800; border-collapse:collapse;}
+
+td.pieza{background:url(http://www.marketingdirecto.com/wp-content/uploads/2012/02/android.jpg); transition:.3s ease-in-out; -moz-transition:.3s ease-in-out; -webkit-transition:.3s ease-in-out; -o-transition:.3s ease-in-out; cursor:pointer;}
+
+div.posic{background:#FFF; padding:5px; border:1px solid #00e800; width:150px; position:absolute; top:70px; overflow:auto; min-height:200px; max-height:250px}
+
+div#titulo{color:#FFF; font-size:30px; font-weight:bold; text-shadow:1px 1px 8px #00e800, -1px -1px 8px #00e800, 1px -1px 8px #00e800, -1px 1px 8px #00e800;}

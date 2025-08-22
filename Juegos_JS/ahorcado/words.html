@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main class="container-fluid">
+        <div class="row" id="app">
+            <div class="col-12 text-center">
+                <h1>Administrar Palabras</h1>
+            </div>
+            <div class="col-12 text-center">
+                <div class="form-inline mb-2">
+                    <label class="mr-2" for="newWord">Agregue una palabra:</label>
+                    <input @keyup="deleteWhiteSpaces()" placeholder="Escriba aquí..." class="m-2 form-control"
+                        id="newWord" type="text" v-model="newWord">
+                    <button @click="saveWord()" :disabled="newWord.length <= 2" class="btn btn-success">Guardar</button>
+                </div>
+            </div>
+            <div class="col-12 text-center">
+                <div class="jumbotron jumbotron-fluid" v-show="!words.length">
+                    <div class="container">
+                        <h1 class="display-4">Sin palabras</h1>
+                        <p class="lead">Agregue las palabras con las que desea jugar</p>
+                    </div>
+                </div>
+                <div class="table-responsive" v-show="words.length">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Palabra</th>
+                                <th>Borrar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(word, index) in words">
+                                <td>{{word}}</td>
+                                <td>
+                                    <button @click="deleteWord(index)" class="btn btn-outline-danger">🗑️</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div>
+                <a class="btn btn-outline-success" href="index.html">⬅ Ir a Jugar</a>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+<script src="js/vue.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/manage_words.js"></script>
+</html>
