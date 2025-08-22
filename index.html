@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ciencia de Datos, IA y Desarrollo Web</title>
+  <title>María Laura Peralta — Ciencia de Datos, IA y Desarrollo Web</title>
 
   <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,12 +12,11 @@
 
   <style>
     :root {
-      --bg: #f9fafb;         /* más claro */
+      --bg: #f9fafb;
       --card: #ffffff;
       --text: #111827;
       --muted: #6b7280;
       --primary: #2563eb;
-      --primary-strong: #1d4ed8;
       --accent: #7c3aed;
       --radius: 16px;
       --maxw: 1080px;
@@ -29,29 +28,49 @@
       color: var(--text);
       background: var(--bg);
       scroll-behavior: smooth;
-      overflow-y: scroll;
-      scroll-snap-type: y proximity;
     }
 
     section {
-      min-height: 100vh;
-      padding: clamp(24px, 5vw, 64px);
-      display: grid;
-      place-items: center;
-      scroll-snap-align: start;
+      padding: clamp(48px, 5vw, 96px) 5vw;
       position: relative;
     }
 
-    #inicio {
-      background: url('fondo.png') center/cover no-repeat;
-      color: white;
+    section {
+      min-height: unset; /* o eliminar esta propiedad */
     }
 
-    .overlay {
-      background: rgba(0,0,0,.5);
-      position: absolute; inset: 0;
+    section:nth-of-type(even) {
+      background-color: #f3f4f6; /* gris claro */
     }
-    .overlay-content { position: relative; z-index: 2; }
+
+#inicio {
+  background: url('fondo.png') center center / cover no-repeat fixed;
+  background-attachment: fixed;
+  color: white;
+  min-height: 45vh; /* Reducido desde 100vh */
+  padding: clamp(24px, 4vw, 48px); /* Menos padding vertical */
+}
+
+#inicio h1 {
+  font-size: clamp(24px, 4vw, 98px); /* Más pequeño */
+  margin-top: 98px;
+  margin-bottom: 18px;
+}
+
+#inicio p {
+  font-size: clamp(14px, 2.5vw, 25px); /* Más chico también */
+  max-width: 700px;
+  margin: 0 auto;
+  margin-bottom: 38px;
+}
+
+#inicio .overlay { 
+  background: rgba(0,0,0,.45); 
+  position: absolute; 
+  inset: 0; 
+} 
+
+#inicio .overlay-content { position: relative; z-index: 2; max-width: var(--maxw); text-align: center; }
 
     .container { width: 100%; max-width: var(--maxw); margin: auto; }
     h1, h2 { font-family: Poppins, sans-serif; }
@@ -63,9 +82,16 @@
       border-radius: var(--radius);
       padding: 24px;
       box-shadow: 0 6px 20px rgba(0,0,0,.1);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+    .btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; justify-content: center; }
     .btn {
       padding: 12px 18px;
       border-radius: 12px;
@@ -77,157 +103,210 @@
     .btn.ghost { background: #e5e7eb; color: #111827; }
     .btn:hover { opacity: .85; }
 
-    .dots { position: fixed; right: 18px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 10px; }
+    .grid-2 { display: grid; grid-template-columns: 1fr; gap: 24px; }
+    @media (min-width: 900px) {
+      .grid-2 { grid-template-columns: 1fr 1fr; }
+    }
+
+    .dots { position: fixed; right: 18px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 10px; z-index: 999; }
     .dot { width: 10px; height: 10px; border-radius: 50%; background: #9ca3af; display:block; }
     .dot.active { background: var(--primary); transform: scale(1.2); }
 
     footer { text-align:center; padding: 32px; color: var(--muted); }
+
+    .btn i {
+      margin-right: 8px;
+    }
+
   </style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+
 </head>
 <body>
   <nav class="dots">
     <a class="dot active" href="#inicio"></a>
     <a class="dot" href="#formacion"></a>
-    <a class="dot" href="#habilidades"></a>
     <a class="dot" href="#experiencia"></a>
-    <a class="dot" href="#docencia"></a>
     <a class="dot" href="#ventas"></a>
-    <a class="dot" href="#otras"></a>
     <a class="dot" href="#desarrollo"></a>
-    <a class="dot" href="#gestion"></a>
     <a class="dot" href="#contacto"></a>
   </nav>
 
   <!-- Encabezado -->
   <section id="inicio">
     <div class="overlay"></div>
-    <div class="overlay-content container">
+    <div class="overlay-content">
       <h1>María Laura Peralta</h1>
       <p>Técnica en Desarrollo Web y estudiante de Ciencias de Datos e Inteligencia Artificial. Experiencia en análisis funcional, testing y soporte en entornos académicos y empresariales.</p>
-      <div class="btns">
-        <a class="btn primary" href="mailto:lali.635@gmail.com">Email</a>
-        <a class="btn ghost" href="https://wa.me/5492644862757" target="_blank">WhatsApp</a>
-        <a class="btn ghost" href="https://linkedin.com" target="_blank">LinkedIn</a>
-        <a class="btn ghost" href="https://portfolio.com" target="_blank">Portfolio</a>
+    </div>
+  </section>
+
+  <!-- Formación Académica + Habilidades Técnicas -->
+  <section id="formacion">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Formación Académica</h2>
+        <ul>
+          <li>Tecnicatura en Desarrollo Web y Aplicaciones Digitales (2022–2024)</li>
+          <li>Tecnicatura en Ciencias de Datos e Inteligencia Artificial (2022–2025)</li>
+          <li>Secundario completo (2004)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Habilidades Técnicas</h2>
+        <ul>
+          <li>Lenguajes: C, C++, Java, JavaScript, Python</li>
+          <li>Bases de datos: SQL</li>
+          <li>Herramientas y plataformas: Moodle, WordPress, XAMPP, Joomla</li>
+          <li>Sistemas Operativos: Windows, Linux, Android</li>
+          <li>Ofimática: Excel, Word, PowerPoint, Access</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- Formación Académica -->
-  <section id="formacion">
-    <div class="container card">
-      <h2>Formación Académica</h2>
-      <ul>
-        <li>Tecnicatura en Desarrollo Web y Aplicaciones Digitales (2022–2024)</li>
-        <li>Tecnicatura en Ciencias de Datos e Inteligencia Artificial (2022–2025)</li>
-        <li>Secundario completo (2004)</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Habilidades Técnicas -->
-  <section id="habilidades">
-    <div class="container card">
-      <h2>Habilidades Técnicas</h2>
-      <ul>
-        <li>Lenguajes: C, C++, Java, JavaScript, Python</li>
-        <li>Bases de datos: SQL</li>
-        <li>Herramientas y plataformas: Moodle, WordPress, XAMPP, Joomla</li>
-        <li>Sistemas Operativos: Windows, Linux, Android</li>
-        <li>Ofimática: Excel, Word, PowerPoint, Access</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Experiencia Profesional Reciente -->
+  <!-- Experiencia Profesional Reciente + Docencia Universitaria -->
   <section id="experiencia">
-    <div class="container card">
-      <h2>Experiencia Profesional Reciente</h2>
-      <ul>
-        <li>Analista Funcional – ITC (2023–Actualidad)</li>
-        <li>Analista Funcional, Testing y Soporte en Moodle – UNSJ (2020–Actualidad)</li>
-        <li>Auxiliar Docente – Instituto Genios (2014–Actualidad)</li>
-      </ul>
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Experiencia Profesional Reciente</h2>
+        <ul>
+          <li>Analista Funcional – ITC (2023–Actualidad)</li>
+          <li>Analista Funcional, Testing y Soporte en Moodle – UNSJ (2020–Actualidad)</li>
+          <li>Auxiliar Docente – Instituto Genios (2014–Actualidad)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Docencia Universitaria</h2>
+        <ul>
+          <li>Ayudante de Cátedra — Geometría Analítica (FFHA-UNSJ, 2012)</li>
+          <li>Ayudante de Cátedra — Elementos de Álgebra (FFHA-UNSJ, 2013)</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <!-- Docencia Universitaria -->
-  <section id="docencia">
-    <div class="container card">
-      <h2>Docencia Universitaria</h2>
-      <ul>
-        <li>Ayudante de Cátedra — Geometría Analítica (FFHA-UNSJ, 2012)</li>
-        <li>Ayudante de Cátedra — Elementos de Álgebra (FFHA-UNSJ, 2013)</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Experiencia en Ventas y Atención -->
+  <!-- Experiencia en Ventas y Atención + Otras Experiencias -->
   <section id="ventas">
-    <div class="container card">
-      <h2>Experiencia en Ventas y Atención</h2>
-      <ul>
-        <li>Encargada de sucursal — GRIDO Helados (2018–2019)</li>
-        <li>Vendedora — Call Center Movistar Express (2017–2018)</li>
-        <li>Atención al público en comercios (2007–2017)</li>
-      </ul>
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Experiencia en Ventas y Atención</h2>
+        <ul>
+          <li>Encargada de sucursal — GRIDO Helados (2018–2019)</li>
+          <li>Vendedora — Call Center Movistar Express (2017–2018)</li>
+          <li>Atención al público en comercios (2007–2017)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Otras Experiencias</h2>
+        <ul>
+          <li>Auxiliar de Nivel Inicial — Centro “Mi Jelu” (2016)</li>
+          <li>Ayudante de cocina y eventos (2015–2017)</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <!-- Otras Experiencias -->
-  <section id="otras">
-    <div class="container card">
-      <h2>Otras Experiencias</h2>
-      <ul>
-        <li>Auxiliar de Nivel Inicial — Centro “Mi Jelu” (2016)</li>
-        <li>Ayudante de cocina y eventos (2015–2017)</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Desarrollo y Programación -->
+  <!-- Desarrollo y Programación + Educación y Gestión -->
   <section id="desarrollo">
-    <div class="container card">
-      <h2>Desarrollo y Programación</h2>
-      <ul>
-        <li>Node JS — Codo a Codo (2022)</li>
-        <li>Fundamentos Python — CISCO (2022)</li>
-        <li>Testing QA — Codo a Codo (2022)</li>
-        <li>Backend con JS — San Juan TEC (2021)</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Educación y Gestión -->
-  <section id="gestion">
-    <div class="container card">
-      <h2>Educación y Gestión</h2>
-      <ul>
-        <li>Teletrabajo — CAMEeducativa (2019)</li>
-        <li>Resolución de conflictos (2019)</li>
-        <li>Conformación de Equipos de Trabajo (2018)</li>
-        <li>El Rol del Preceptor — Instituto CRECER (2015)</li>
-      </ul>
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Desarrollo y Programación</h2>
+        <ul>
+          <li>Node JS — Codo a Codo (2022)</li>
+          <li>Fundamentos Python — CISCO (2022)</li>
+          <li>Testing QA — Codo a Codo (2022)</li>
+          <li>Backend con JS — San Juan TEC (2021)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Educación y Gestión</h2>
+        <ul>
+          <li>Teletrabajo — CAMEeducativa (2019)</li>
+          <li>Resolución de conflictos (2019)</li>
+          <li>Conformación de Equipos de Trabajo (2018)</li>
+          <li>El Rol del Preceptor — Instituto CRECER (2015)</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <!-- Contacto -->
   <section id="contacto">
-    <div class="container card" style="text-align:center">
-      <h2>Contacto</h2>
-      <p>¿Trabajamos juntos? Escribime y con gusto comparto portfolio y proyectos.</p>
-      <div class="btns" style="justify-content:center">
-        <a class="btn primary" href="mailto:lali.635@gmail.com">Email</a>
-        <a class="btn ghost" href="https://wa.me/5492644862757" target="_blank">WhatsApp</a>
-        <a class="btn ghost" href="https://linkedin.com" target="_blank">LinkedIn</a>
-        <a class="btn ghost" href="https://portfolio.com" target="_blank">Portfolio</a>
+    <div class="container" style="max-width:700px">
+      <div class="card" style="text-align:center">
+        <h2>Contacto</h2>
+        <p>¿Trabajamos juntos? Escribime y con gusto comparto portfolio y proyectos.</p>
+            <div class="btns">
+              <a class="btn ghost" id="email-btn" data-link="mailto:lali.635@gmail.com">
+                <i class="fas fa-envelope"></i> Email
+              </a>
+              <a class="btn ghost" id="whatsapp-btn" data-link="https://wa.me/5492644862757">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a class="btn ghost" id="linkedin-btn" data-link="https://linkedin.com">
+                <i class="fab fa-linkedin"></i> LinkedIn
+              </a>
+              <a class="btn ghost" id="portfolio-btn" data-link="portfolio.html">
+                <i class="fas fa-folder-open"></i> Portfolio
+              </a>
+            </div>
       </div>
+      <footer>© <span id="year"></span> • María Laura Peralta</footer>
     </div>
-    <footer>© <span id="year"></span> • María Laura Peralta</footer>
   </section>
 
   <script>
+    // Activar año en footer
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Animación de aparición
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    cards.forEach(card => observer.observe(card));
+
+    // Manejo de clic en botones sin href para ocultar el link al pasar el mouse
+    document.querySelectorAll('.btn[data-link]').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        const link = this.getAttribute('data-link');
+        // Abrir mailto directamente, otros en nueva pestaña
+        if (link.startsWith('mailto:')) {
+          window.location.href = link;
+        } else {
+          window.open(link, '_blank');
+        }
+      });
+    });
   </script>
+
+  <script>
+    // Actualizar el dot activo según la sección visible
+    const sections = document.querySelectorAll("section");
+    const dots = document.querySelectorAll(".dot");
+
+    window.addEventListener("scroll", () => {
+      let currentIndex = sections.length;
+
+      while (--currentIndex >= 0) {
+        const sectionTop = sections[currentIndex].offsetTop;
+        const sectionHeight = sections[currentIndex].offsetHeight;
+        if (window.scrollY + window.innerHeight / 2 >= sectionTop) {
+          dots.forEach(dot => dot.classList.remove("active"));
+          dots[currentIndex].classList.add("active");
+          break;
+        }
+      }
+    });
+  </script>
+
 </body>
 </html>

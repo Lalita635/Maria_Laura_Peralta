@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio — María Laura Peralta</title>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root {
+      --bg: #f9fafb;
+      --card: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --primary: #2563eb;
+      --accent: #7c3aed;
+      --radius: 16px;
+      --maxw: 1080px;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      scroll-behavior: smooth;
+    }
+
+    section {
+      padding: clamp(48px, 5vw, 96px) 5vw;
+      position: relative;
+    }
+
+    h1, h2, h3 {
+      font-family: Poppins, sans-serif;
+    }
+
+    h1 {
+      font-size: clamp(32px, 6vw, 54px);
+      margin: 0 0 12px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: clamp(22px, 3.5vw, 32px);
+      margin: 24px 0 8px;
+    }
+
+    h3 {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .container {
+      max-width: var(--maxw);
+      margin: auto;
+    }
+
+    .header {
+      background: url('portfolio.jpg') center center / cover no-repeat fixed;
+      color: white;
+      text-align: center;
+      padding: 96px 24px;
+      position: relative;
+    }
+
+    .overlay {
+      background: rgba(0,0,0,0.45);
+      position: absolute;
+      inset: 0;
+    }
+
+    .overlay-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .subtitulo {
+      max-width: 1050px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: clamp(18px, 2.2vw, 22px);
+      line-height: 1.6;
+    }
+
+    .accordion {
+      background: #e5e7eb;
+      border-radius: 12px;
+      margin: 24px 0;
+      padding: 16px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .accordion:hover {
+      background: #d1d5db;
+    }
+
+    .panel {
+      display: none;
+      margin-top: 16px;
+      animation: fade 0.3s ease-in-out;
+    }
+
+    .panel .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-top: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .panel .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.1);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 10px 16px;
+      border-radius: 12px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: opacity 0.2s ease;
+    }
+
+    .btn:hover {
+      opacity: 0.85;
+    }
+
+    .btn.ghost { background: #e5e7eb; color: #111827; }
+
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px;
+      color: var(--muted);
+    }
+
+    .accordion i {
+      float: right;
+      transition: transform 0.3s;
+    }
+
+    .accordion.active i {
+      transform: rotate(90deg);
+    }
+
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="overlay"></div>
+    <div class="overlay-content">
+      <h1>Portfolio</h1>
+      <p class="subtitulo">
+        Esta sección reúne una selección de proyectos desarrollados durante mi formación y experiencia práctica. 
+        Incluye scripts funcionales en JavaScript y Python, juegos interactivos, automatizaciones simples y 
+        notebooks de análisis de datos. Cada uno refleja distintas habilidades técnicas aplicadas a la resolución 
+        de problemas concretos, exploración de datos y desarrollo web.
+      </p>
+    </div>
+  </header>
+
+  <section class="container">
+
+    <!-- Sección 1 -->
+    <div class="accordion"><h2>Scripts JS <i class="fas fa-chevron-right"></i></h2></div>
+    <div class="panel">
+      <div class="grid">
+        <div class="card">
+          <h3>Validar Mail</h3>
+          <p>Lorem Impus</p>
+          <a class="btn" href="check_mail.html">Ver</a>
+        </div>
+        <div class="card">
+          <h3>Clima</h3>
+          <p>Script que muestra el clima.</p>
+          <a class="btn" href="clima.html">Ver</a>
+        </div>
+        <div class="card">
+          <h3>Cronómetro</h3>
+          <p>Script ...</p>
+          <a class="btn" href="cronometro.html">Ver</a>
+        </div>
+        <div class="card">
+          <h3>Cronómetro 2</h3>
+          <p>Script ..</p>
+          <a class="btn" href="cronometro_marca.html">Ver</a>
+        </div>
+        <div class="card">
+          <h3>Firma</h3>
+          <p>Script ..</p>
+          <a class="btn" href="firma.html">Ver</a>
+        </div>
+        <div class="card">
+          <h3>Contraseña</h3>
+          <p>Script ..</p>
+          <a class="btn" href="pass.html">Ver</a>
+        </div>
+        <div class="card">
+          <h3>Contraseña Automática</h3>
+          <p>Script ..</p>
+          <a class="btn" href="password_a.html">Ver</a>
+        </div>
+        <div class="card">
+          <h3>Temporizador</h3>
+          <p>Script ..</p>
+          <a class="btn" href="temporizador.html">Ver</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección 2 -->
+    <div class="accordion"><h2>Juegos JS <i class="fas fa-chevron-right"></i></h2></div>
+    <div class="panel">
+      <div class="grid">
+        <div class="card">
+          <h3>Ahorcado</h3>
+          <p>Juego clásico del ahorcado implementado en JavaScript.</p>
+          <a class="btn" href="ahorcado.html">Ver</a>
+        </div>
+        <div class="card">
+          <h3>Memoria</h3>
+          <p>Juego de la memoria desarrollado en JavaScript</p>
+          <a class="btn" href="memoria.html">Ver</a>
+        </div>
+        <div class="card">
+          <h3>Snake</h3>
+          <p>Clásico juego desarrollado en JavaScript.</p>
+          <a class="btn" href="snake.html">Ver</a>
+        </div>
+        <div class="card">
+          <h3>Tetris</h3>
+          <p>A disfrutar de esta versión que incluye personalización.</p>
+          <a class="btn" href="tetris.html">Ver</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección 3 -->
+    <div class="accordion"><h2>Scripts Python <i class="fas fa-chevron-right"></i></h2></div>
+    <div class="panel">
+      <div class="grid">
+        <div class="card">
+          <h3>Analizador de Texto</h3>
+          <p>Cuenta palabras, caracteres y frases de un texto.</p>
+          <a class="btn" href="#">Ver código</a>
+        </div>
+        <div class="card">
+          <h3>Buscador de Archivos</h3>
+          <p>Busca archivos por tipo o nombre en tu PC.</p>
+          <a class="btn" href="#">Ver código</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección 4 -->
+    <div class="accordion"><h2>Ciencia de Datos <i class="fas fa-chevron-right"></i></h2></div>
+    <div class="panel">
+      <div class="grid">
+        <div class="card">
+          <h3>Análisis de CSV</h3>
+          <p>Exploración de datos de un archivo CSV con pandas.</p>
+          <a class="btn" href="#">Ver código</a>
+        </div>
+        <div class="card">
+          <h3>Visualización de Datos</h3>
+          <p>Gráficos con matplotlib y seaborn sobre dataset real.</p>
+          <a class="btn" href="#">Ver código</a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <footer>© <span id="year"></span> • María Laura Peralta</footer>
+
+  <script>
+    // Año en el footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Acordeón funcional
+    const accordions = document.querySelectorAll(".accordion");
+    accordions.forEach(acc => {
+      acc.addEventListener("click", function () {
+        this.classList.toggle("active");
+        const panel = this.nextElementSibling;
+        panel.style.display = panel.style.display === "block" ? "none" : "block";
+      });
+    });
+  </script>
+</body>
+</html>
