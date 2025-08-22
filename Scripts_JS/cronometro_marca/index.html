@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cronómetro con marcas</title>
+	<link rel="stylesheet" href="https://unpkg.com/bulma">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.9.55/css/materialdesignicons.min.css">
+	<style>
+		.mdi {
+			font-size: 3rem;
+		}
+
+		#tiempoTranscurrido {
+			font-size: 4rem;
+		}
+	</style>
+</head>
+
+
+<body>
+	<section class="section">
+		<div class="columns">
+			<div class="column has-text-centered">
+				<h2 id="tiempoTranscurrido"></h2>
+				<button class="button is-success is-large" id="btnIniciar"><span class="mdi mdi-play"></span></button>
+				<button class="button is-success is-large" id="btnPausar"><span class="mdi mdi-pause"></span></button>
+				<button class="button is-primary is-large" id="btnMarca"><span class="mdi mdi-flag"></span></button>
+				<button class="button is-warning is-large" id="btnDetener"><span class="mdi mdi-stop"></span></button>
+				<div id="contenedorMarcas">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="script.js"></script>
+</body>
+
+</html>

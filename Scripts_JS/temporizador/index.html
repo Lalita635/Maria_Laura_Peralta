@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Temporizador</title>
+	<link rel="stylesheet" href="https://unpkg.com/bulma">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.9.55/css/materialdesignicons.min.css">
+	<link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+	<section class="section">
+		<div class="columns is-centered">
+			<div class="column has-text-centered">
+				<div id="contenedorInputs">
+					<h3>Indique la cantidad de minutos y segundos:</h3>
+					<div class="field">
+						<label class="label">Minutos</label>
+						<div class="control">
+							<input class="input" id="minutos" type="number" placeholder="Minutos">
+						</div>
+					</div>
+					<div class="field">
+						<label class="label">Segundos</label>
+						<div class="control">
+							<input class="input" id="segundos" type="number" placeholder="Segundos">
+						</div>
+					</div>
+				</div>
+				<h2 id="tiempoRestante">00:00.0</h2>
+				<button id="btnIniciar" class="button is-success"><span class="mdi mdi-play"></span></button>
+				<button id="btnPausar" class="button is-success"><span class="mdi mdi-pause"></span></button>
+				<button id="btnDetener" class="button is-success"><span class="mdi mdi-stop"></span></button>
+				<br>
+			</div>
+		</div>
+	</section>
+
+	<script src="script.js"></script>
+</body>
+
+</html>

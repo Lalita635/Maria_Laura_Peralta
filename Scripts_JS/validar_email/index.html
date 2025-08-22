@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <title>Validación de email</title>
+        <script type="text/javascript">
+            function validarEmail(){
+                
+                var email = document.getElementById('user-email');
+                
+                var expreg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/;
+
+                if( expreg.test(email.value) ){
+                    alert('El correo es válido!');
+                    return true;
+                }else{
+                    alert('El correo NO es válido!');
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <label for="user-email">Ingrese el correo electrónico a validar: </label>
+            <input type="email" id="user-email" name="userEmail" />
+            <input type="submit" value="Validar" onclick="return validarEmail()"/>
+        </form>
+    </body>
+</html>

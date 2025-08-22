@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html lang="es" >
+<head>
+  <meta charset="UTF-8">
+  <title>Generador de Contraseñas</title>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Kanit:300,500,700'>
+
+<style>
+  body {
+    min-height: 100vh;
+    padding-top: 100px;
+    background: #e8eaed;
+    font-family: "Kanit", sans-serif;
+    font-weight: 300;
+}
+
+.info {
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+    margin: 0;
+}
+
+.title-section {
+    background: #fd9d08;
+    padding: 2px 10px;
+    color: white;
+}
+
+h1 {
+    font-size: 1.1rem;
+}
+
+.inner-section {
+    padding: 20px;
+}
+
+.wrapper {
+    overflow: hidden;
+    margin: auto;
+    width: 90%;
+    max-width: 380px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.wrapper .password-section {
+    position: relative;
+    border: 2px solid lightgray;
+    color: gray;
+    margin-top: 20px;
+    padding: 2px 2px 2px 8px;
+    border-radius: 5px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper .password-section .alert {
+    position: absolute;
+    padding: 0 5px;
+    border-radius: 2px;
+    width: 21ch;
+    height: 89%;
+    left: 2px;
+    top: -100%;
+    width: 96%;
+    text-align: center;
+    color: #333;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.wrapper .password-section .alert.success {
+    background: rgb(29,161,242, 0.9);
+    opacity: 1;
+}
+
+.wrapper .password-section .alert.fail {
+    background: rgb(230,0,35, 0.9);
+    color: white;
+    opacity: 1;
+}
+
+.wrapper .password-section .copy {
+    height: 100%;
+    width: 50px;
+    background: #e60023;
+    border: 0;
+    color: white;
+    border-radius: 2px;
+    padding: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.wrapper .password-section .copy:hover {
+    background: #ff7a00;
+}
+
+.wrapper .controls {
+    text-align: left;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.wrapper .controls .control {
+    padding: 3px;
+    border-bottom: 1px solid lightgray;
+    width: 100%;
+    margin: 2px;
+}
+
+.wrapper .controls .generate {
+    width: 100%;
+    border: 0;
+    color: white;
+    background: #fd9d08;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.wrapper .controls .generate:hover {
+    background: #ff7a00;
+}
+
+#length-box {
+    width: 100%;
+}
+
+#length-box input {
+    width: 100%;
+}
+
+input[type="checkbox"] {
+    visibility: hidden;
+}
+
+label.check-label {
+    position: relative;
+}
+
+label.check-label:before {
+    content: "";
+    height: 1rem;
+    width: 1rem;
+    left: -24px;
+    top: 0;
+    border: 0.5px solid lightgray;
+    position: absolute;
+    background: transparent;
+    transition: all 0.3s cubic-bezier(0, 0.82, 1, 1.81);
+}
+
+input[type="checkbox"]:checked + label.check-label:before {
+    content: "";
+    font-family: "FontAwesome";
+    font-size: 0.8rem;
+    color: #212121;
+    text-align: center;
+    background: #00e676;
+    transition: all 0.3s cubic-bezier(0, 0.82, 1, 1.81);
+}
+</style>
+</head>
+
+<body>
+
+  <div class="wrapper">
+  <div class="title-section">
+    <h1 class="title">Generador de Contraseña</h1>
+  </div>
+  <div class="inner-section">
+    <div class="password-section">
+    <div class="pass-field" id="pass-field">
+    ----
+  </div>
+    <button id="copy" class="copy">Copiar</button>
+    <div class="alert" id="alert"><span class="message" id="message"></div>
+  </div>
+  <p class="info">Seleccione las opciones que desee y click en el boton "Generar".</p>
+  <div class="controls">
+    <div class="control length" id="length-box" >
+      <label for="length">Longitud de la contraseña</label>
+      <input type="range" id='length' min="4" max="20" list="ranges">
+      <datalist id="ranges">
+        <option value="4" label="4">
+        <option value="5">
+        <option value="6">
+        <option value="7">
+        <option value="8">        
+        <option value="9">
+        <option value="10">
+        <option value="11">
+        <option value="12" label="12">
+        <option value="13">
+        <option value="14">
+        <option value="15">
+        <option value="16">
+        <option value="17">
+        <option value="18">
+        <option value="19">
+        <option value="20">
+      </datalist>
+    </div>
+    <div class="control">
+      <input type="checkbox" id="lowercase">
+      <label class="check-label" for="lowercase"><span class="checkbox">Incluir Minúsculas</span></label>
+    </div>
+    <div class="control">
+      <input type="checkbox" id="uppercase">
+      <label class="check-label" for="uppercase"><span class="checkbox">Incluir Mayúsculas</span></label>
+    </div>
+    <div class="control">
+      <input type="checkbox" id="numbers">
+      <label class="check-label" for="numbers"><span class="checkbox">Incluir Números</span></label>
+    </div>
+    <div class="control">
+      <input type="checkbox" id="punctuation">
+      <label class="check-label" for="punctuation"><span class="checkbox">Incluir Caracteres Especiales</span></label>
+    </div>
+    
+    <button class="generate" id="generate">Generar!</button>
+  </div>
+  </div>
+</div>
+
+<script src='https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js'></script>
+<script src="script.js"></script>
+
+</body>
+</html>
