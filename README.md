@@ -1,10 +1,10 @@
 # 🌐 CV Web — María Laura Peralta
 
-Este repositorio contiene mi **Currículum Vitae online** en formato de página web de una sola página (**one-page website**) para su visualización en **GitHub Pages**.
+Este repositorio contiene mi **Currículum Vitae online** en formato de página web para su visualización en **GitHub Pages**.
 
 ## 📋 Descripción
 
-El sitio presenta mi perfil profesional, formación académica, habilidades técnicas, experiencia laboral y formación complementaria.  
+El sitio presenta mi perfil profesional, formación académica, habilidades técnicas, experiencia laboral, formación complementaria asi como tambien mi portfolio el cual actualizo periodicamente.  
 Se diseñó como un CV digital moderno, adaptable a cualquier dispositivo y con navegación fluida por secciones.
 
 ## 🚀 Demo
@@ -35,8 +35,8 @@ Se diseñó como un CV digital moderno, adaptable a cualquier dispositivo y con 
 
 - 📧 Email: [lali.635@gmail.com](mailto:lali.635@gmail.com)  
 - 💼 LinkedIn: [Mi perfil](https://linkedin.com)  
-- 🌍 Portfolio: [Mi sitio](https://portfolio.com)  
+- 🌍 Portfolio: [Portfolio](https://lalita635.github.io/Maria_Laura_Peralta/portfolio.html)  
 
 ---
 
-✍️ *Desarrollado por **María Laura Peralta***  
+✍️ *Desarrollado por **Lalita635***  
