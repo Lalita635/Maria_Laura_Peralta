@@ -259,10 +259,8 @@
   </section>
 
   <script>
-    // Activar año en footer
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Animación de aparición
     const cards = document.querySelectorAll('.card');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -274,11 +272,10 @@
 
     cards.forEach(card => observer.observe(card));
 
-    // Manejo de clic en botones sin href para ocultar el link al pasar el mouse
     document.querySelectorAll('.btn[data-link]').forEach(btn => {
       btn.addEventListener('click', function(e) {
         const link = this.getAttribute('data-link');
-        // Abrir mailto directamente, otros en nueva pestaña
+        
         if (link.startsWith('mailto:')) {
           window.location.href = link;
         } else {
@@ -289,7 +286,6 @@
   </script>
 
   <script>
-    // Actualizar el dot activo según la sección visible
     const sections = document.querySelectorAll("section");
     const dots = document.querySelectorAll(".dot");
 
