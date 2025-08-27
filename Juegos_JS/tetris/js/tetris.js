@@ -51,14 +51,24 @@ class Game {
         this.init();
     }
 
-    init() {
-        this.showWelcome();
+    async init() {
+        await Swal.fire({
+            title: '🎮 Tetris',
+            confirmButtonText: 'Comenzar juego',
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            showCancelButton: false,
+            showCloseButton: false
+        });
+
+        //this.showWelcome();
         this.initDomElements();
         this.initSounds();
         this.resetGame();
         this.draw();
         this.initControls();
     }
+
 
     resetGame() {
         this.score = 0;
@@ -727,4 +737,13 @@ class Tetromino {
 const game = new Game("canvas");
 document.querySelector("#reset").addEventListener("click", () => {
     game.askUserConfirmResetGame();
+});
+
+document.querySelector("#toggleControls").addEventListener("click", () => {
+    const controls = document.querySelector("#controlsInfo");
+    if (controls.style.display === "none") {
+        controls.style.display = "block";
+    } else {
+        controls.style.display = "none";
+    }
 });

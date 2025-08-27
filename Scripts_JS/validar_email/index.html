@@ -1,30 +1,108 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="utf-8" />
-        <title>Validación de email</title>
-        <script type="text/javascript">
-            function validarEmail(){
-                
-                var email = document.getElementById('user-email');
-                
-                var expreg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/;
 
-                if( expreg.test(email.value) ){
-                    alert('El correo es válido!');
-                    return true;
-                }else{
-                    alert('El correo NO es válido!');
-                    return false;
-                }
-            }
-        </script>
-    </head>
-    <body>
-        <form>
-            <label for="user-email">Ingrese el correo electrónico a validar: </label>
-            <input type="email" id="user-email" name="userEmail" />
-            <input type="submit" value="Validar" onclick="return validarEmail()"/>
+<head>
+    <meta charset="UTF-8">
+    <title>Validación de Email</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2em;
+            background: #f2f2f2;
+        }
+
+        .form-container {
+            background: white;
+            padding: 2em;
+            max-width: 400px;
+            margin: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="email"] {
+            width: 100%;
+            padding: 0.8em;
+            margin-bottom: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background: #007BFF;
+            color: white;
+            padding: 0.8em 1.5em;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .message {
+            margin-top: 1em;
+            font-weight: bold;
+        }
+
+        .success {
+            color: green;
+        }
+
+        .error {
+            color: red;
+        }
+
+        #credits {
+            margin-top: 1em;
+            font-size: 0.9em;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Validador de Email</h2>
+        <form id="emailForm">
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" placeholder="Ingresa aquí la dirección de email a validar" required />
+            <button type="submit">Validar</button>
         </form>
-    </body>
+        <div id="result" class="message"></div>
+        <div id="credits"></div>
+    </div>
+
+    <script>
+        function validarEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        document.getElementById('emailForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value.trim();
+            const result = document.getElementById('result');
+            const credits = document.getElementById('credits');
+
+            if (validarEmail(email)) {
+                result.textContent = `"${email}" puede ser un correo válido`;
+                result.className = 'message success';
+            } else {
+                result.textContent = `"${email}" no es un correo válido`;
+                result.className = 'message error';
+            }
+
+            // Mostrar créditos
+            credits.innerHTML = `
+            <hr>
+            <p style="font-size: 1.0em; line-height: 1.4; margin-top: 1em;">
+                <strong>By Lalita635</strong><br>
+            </p>
+        `;
+        });
+    </script>
+</body>
+
 </html>

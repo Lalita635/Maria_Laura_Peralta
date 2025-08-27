@@ -13,32 +13,48 @@
     </style>
     <title>Tetris</title>
 </head>
-<body>
-<main>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h1>Tetris</h1>
-                <h2 id="puntaje">Presiona <kbd>P</kbd> o pulsa el botón para comenzar</h2>
-            </div>
-            <div class="col-12 text-center">
-                <canvas id="canvas"></canvas>
-                <div class="mt-2">
-                    <button id="btnIniciar" class="btn btn-success"><i class="fas fa-play"></i></button>
-                    <button hidden id="btnPausar" class="btn btn-success"><i class="fas fa-pause"></i></button>
-                    <button id="btnIzquierda" class="btn btn-success"><i class="fas fa-arrow-left"></i></button>
-                    <button id="btnAbajo" class="btn btn-success"><i class="fas fa-arrow-down"></i></button>
-                    <button id="btnDerecha" class="btn btn-success"><i class="fas fa-arrow-right"></i></button>
-                    <button id="btnRotar" class="btn btn-success"><i class="fas fa-undo"></i></button>
-                    <button class="btn btn-danger" id="reset">Reset</button>
-                </div>
-            </div>
 
+<body>
+    <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1>Tetris</h1>
+                    <h2 id="puntaje">Presiona <kbd>P</kbd> o pulsa el botón para comenzar</h2>
+                </div>
+                <div class="col-12 text-center">
+                    <canvas id="canvas"></canvas>
+                    <div class="mt-2">
+                        <button id="btnIniciar" class="btn btn-success"><i class="fas fa-play"></i></button>
+                        <button hidden id="btnPausar" class="btn btn-success"><i class="fas fa-pause"></i></button>
+                        <button id="btnIzquierda" class="btn btn-success"><i class="fas fa-arrow-left"></i></button>
+                        <button id="btnAbajo" class="btn btn-success"><i class="fas fa-arrow-down"></i></button>
+                        <button id="btnDerecha" class="btn btn-success"><i class="fas fa-arrow-right"></i></button>
+                        <button id="btnRotar" class="btn btn-success"><i class="fas fa-undo"></i></button>
+                        <button class="btn btn-danger" id="reset">Reset</button>
+                    </div>
+                    <div style="margin: 1em 0;">
+                        <button id="toggleControls" style="padding: 0.5em 1em;">Ver controles</button>
+                        <div id="controlsInfo"
+                            style="display: none; margin-top: 0.5em; font-size: 0.9em; background: #f0f0f0; padding: 1em; border-radius: 5px;">
+                            <strong>Controles:</strong><br>
+                            <ul style="margin-top: 0.5em; padding-left: 1.2em;">
+                                <li><kbd>P</kbd>: Pausar / Reanudar</li>
+                                <li><kbd>Espacio</kbd>: Rotar figura</li>
+                                <li><kbd>Flechas</kbd>: Mover figura</li>
+                                <li>También podés usar los botones táctiles</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
         </div>
-    </div>
-</main>
+    </main>
 
 </body>
 <script src="js/sweetalert2.min.js"></script>
 <script src="js/tetris.js"></script>
+
 </html>

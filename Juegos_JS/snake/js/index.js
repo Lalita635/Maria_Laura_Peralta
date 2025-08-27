@@ -1,7 +1,4 @@
-
-
 document.addEventListener("DOMContentLoaded", () => {
-
 	const NADA = 0,
 		PIEDRA = 1,
 		MANZANA = 2,
@@ -11,18 +8,22 @@ document.addEventListener("DOMContentLoaded", () => {
 		PARED_DERECHA = 5,
 		PARED_ARRIBA = 6,
 		PARED_ABAJO = 7;
-	let juegoComenzado = false, $canvas = document.querySelector("#canvas");
+
+	let juegoComenzado = false,
+		enPausa = false,
+		cartelPausaVisible = false,
+		$canvas = document.querySelector("#canvas");
+
 	class PedazoSerpiente {
 		constructor(x = 10, y = 10) {
 			this.x = x;
-			this.y = x;
+			this.y = y;
 		}
 	}
+
 	class Juego {
 		constructor() {
-			// Por los prefijos de los navegadores
 			window.AudioContext = window.AudioContext || window.webkitAudioContext;
-			// Cargar el audio
 			this.bufferSonidoComerManzana = null;
 			this.cargarEfectosDeSonido();
 			this.teclas = {
@@ -31,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				"38": "arriba",
 				"40": "abajo"
 			};
+
 			this.imagenes = {
 				comida: "https://image.ibb.co/gTiND6/snake_food.png",
 				paredIzquierda: "https://image.ibb.co/n0FDLm/pared_izquierda_resized.png",
@@ -40,9 +42,9 @@ document.addEventListener("DOMContentLoaded", () => {
 				cuadroVerde: "https://image.ibb.co/g4SURR/snake_pixel.png",
 				manzana: "https://image.ibb.co/gTiND6/snake_food.png",
 				raton: "https://image.ibb.co/e9jq0m/Greedy_Mouse_sprite.png",
-				piedra:
-					"https://image.ibb.co/e9jq0m/Greedy_Mouse_sprite.png"
+				piedra: "https://image.ibb.co/e9jq0m/Greedy_Mouse_sprite.png"
 			};
+
 			this.contadorImagenes = 0;
 			this.imagenesRequeridas = 9;
 			this.serpiente = [
@@ -50,26 +52,29 @@ document.addEventListener("DOMContentLoaded", () => {
 				new PedazoSerpiente(),
 				new PedazoSerpiente()
 			];
+
 			this.canvas = $canvas;
 			this.canvasCtx = this.canvas.getContext("2d");
-			console.log("La anchura:", this.canvas.width);
-			console.log("La altura:", this.canvas.height);
+
 			this.longitudX = parseInt(this.canvas.width / TAMANIO_SPRITES);
 			this.longitudY = parseInt(this.canvas.height / TAMANIO_SPRITES);
 			this.matriz = this.obtenerMatrizEscenario(this.longitudY, this.longitudX);
+
 			this.velocidadInicial = 100;
 			this.velocidad = 1;
 			this.incrementoVelocidad = 0.05;
+
 			this.direcciones = {
 				derecha: 1,
 				izquierda: 2,
 				arriba: 3,
 				abajo: 4
 			};
+
 			this.siguienteDireccion = this.direcciones.derecha;
 			this.direccion = this.direcciones.derecha;
-			let dis = this;
 
+			let dis = this;
 			this._imagenes = {};
 			for (let i in this.imagenes) {
 				this._imagenes[i] = new Image();
@@ -80,73 +85,49 @@ document.addEventListener("DOMContentLoaded", () => {
 				});
 			}
 
-			this.canvas.addEventListener("click", evento => {
-				let x = evento.clientX,
-					y = evento.clientY,
-					tercioXCanvas = this.canvas.width / 3,
-					tercioYCanvas = this.canvas.height / 3;
-				if (x <= tercioXCanvas && y >= tercioYCanvas && y <= tercioYCanvas * 2) {
-					if (
-						dis.direccion === dis.direcciones.arriba ||
-						dis.direccion === dis.direcciones.abajo
-					)
-						dis.siguienteDireccion = dis.direcciones.izquierda;
-				} else if (
-					x >= tercioXCanvas * 2 &&
-					x <= tercioXCanvas * 3 &&
-					y >= tercioYCanvas &&
-					y <= tercioYCanvas * 2
-				) {
-					if (
-						dis.direccion === dis.direcciones.arriba ||
-						dis.direccion === dis.direcciones.abajo
-					)
-						dis.siguienteDireccion = dis.direcciones.derecha;
-				} else if (
-					x >= tercioXCanvas &&
-					x <= tercioXCanvas * 2 &&
-					y >= 0 &&
-					y <= tercioYCanvas
-				) {
-					if (
-						dis.direccion === dis.direcciones.derecha ||
-						dis.direccion === dis.direcciones.izquierda
-					)
-						dis.siguienteDireccion = dis.direcciones.arriba;
-				} else if (
-					x >= tercioXCanvas &&
-					x <= tercioXCanvas * 2 &&
-					y >= tercioYCanvas * 2 &&
-					y <= tercioYCanvas * 3
-				) {
-					if (
-						dis.direccion === dis.direcciones.derecha ||
-						dis.direccion === dis.direcciones.izquierda
-					)
-						dis.siguienteDireccion = dis.direcciones.abajo;
-				}
-			});
-
-
 			document.addEventListener("keydown", evento => {
 				let direccion = this.teclas[evento.keyCode];
 				if (direccion) {
 					if (
-						(this.direccion === this.direcciones.derecha ||
-							this.direccion === this.direcciones.izquierda) &&
+						(this.direccion === this.direcciones.derecha || this.direccion === this.direcciones.izquierda) &&
 						(direccion === "arriba" || direccion === "abajo")
 					)
 						this.siguienteDireccion = this.direcciones[direccion];
 					else if (
-						(this.direccion === this.direcciones.arriba ||
-							this.direccion === this.direcciones.abajo) &&
+						(this.direccion === this.direcciones.arriba || this.direccion === this.direcciones.abajo) &&
 						(direccion === "derecha" || direccion === "izquierda")
 					)
 						this.siguienteDireccion = this.direcciones[direccion];
 				}
-			});
 
+				if (evento.key === 'p' || evento.key === 'P') {
+					if (!enPausa) {
+						enPausa = true;
+						cartelPausaVisible = true;
+						Swal.fire({
+							title: '⏸ Juego en Pausa',
+							text: 'Haz clic en el botón para continuar.',
+							icon: 'info',
+							confirmButtonText: '▶ Reanudar',
+							allowOutsideClick: false,
+							allowEscapeKey: false,
+							showCancelButton: false,
+							showCloseButton: false,
+							didOpen: () => {
+								Swal.getTitle().style.color = '#333';
+								Swal.getPopup().style.background = '#f4f4f4';
+							}
+						}).then(() => {
+							enPausa = false;
+							cartelPausaVisible = false;
+							this.dibujar();
+						});
+					}
+				}
+
+			});
 		}
+
 		ponerManzanaEnAlgunLugar() {
 			let x, y;
 			do {
@@ -155,11 +136,12 @@ document.addEventListener("DOMContentLoaded", () => {
 			} while (this.matriz[x][y] !== NADA);
 			this.matriz[x][y] = MANZANA;
 		}
+
 		agregarPedazo() {
 			this.serpiente.push(new PedazoSerpiente());
 		}
+
 		dibujarSerpiente() {
-			// Aumentamos o reducimos en X e Y, y hacemos todos los cálculos necesarios
 			this.direccion = this.siguienteDireccion;
 			for (let x = this.serpiente.length - 1; x >= 1; x--) {
 				this.serpiente[x].x = this.serpiente[x - 1].x;
@@ -179,11 +161,9 @@ document.addEventListener("DOMContentLoaded", () => {
 					this.serpiente[0].y++;
 					break;
 			}
-			// Comprobamos si, antes de dibujar, la serpiente ya ha chocado
-			if (this.colisionaConAlgo()) {
-				console.log("A punto de chocar!");
-				return false;
-			}
+
+			if (this.colisionaConAlgo()) return false;
+
 			for (let x = this.serpiente.length - 1; x >= 0; x--) {
 				this.canvasCtx.drawImage(
 					this._imagenes.cuadroVerde,
@@ -195,9 +175,11 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 			return true;
 		}
+
 		comprobarSiSeTerminaronDeCargar() {
 			if (this.contadorImagenes === this.imagenesRequeridas) this.reiniciarJuego();
 		}
+
 		reiniciarJuego() {
 			juegoComenzado = true;
 			setTimeout(() => {
@@ -205,12 +187,14 @@ document.addEventListener("DOMContentLoaded", () => {
 				this.dibujar();
 			}, this.velocidadInicial / this.velocidad);
 		}
+
 		onManzanaComida() {
 			this.reproducirSonidoDeManzanaComida();
 			this.agregarPedazo();
 			this.aumentarVelocidad();
 			this.ponerManzanaEnAlgunLugar();
 		}
+
 		aumentarVelocidad() {
 			this.velocidad += this.incrementoVelocidad;
 		}
@@ -229,6 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 			peticion.send();
 		}
+
 		reproducirSonidoDeManzanaComida() {
 			if (this.bufferSonidoComerManzana) {
 				var context = new AudioContext();
@@ -236,43 +221,43 @@ document.addEventListener("DOMContentLoaded", () => {
 				source.buffer = this.bufferSonidoComerManzana;
 				source.connect(context.destination);
 				source.start(0);
-			} else {
-				console.log("No hay sonido")
 			}
 		}
+
 		dibujar() {
-			let incrementoY = 0,
-				incrementoX = 0;
+			if (enPausa) return;
+
 			this.limpiarEscenario();
 			this.dibujarMatriz();
 			let sePudoDibujarLaSerpiente = this.dibujarSerpiente();
+
 			if (sePudoDibujarLaSerpiente) {
 				if (this.matriz[this.serpiente[0].x][this.serpiente[0].y] === MANZANA) {
 					this.matriz[this.serpiente[0].x][this.serpiente[0].y] = NADA;
 					this.onManzanaComida();
-					setTimeout(() => {
-						this.dibujar();
-					}, this.velocidadInicial / this.velocidad);
-				} else {
-					setTimeout(() => {
-						this.dibujar();
-					}, this.velocidadInicial / this.velocidad);
 				}
+				setTimeout(() => this.dibujar(), this.velocidadInicial / this.velocidad);
 			} else {
-				alert("Perdiste");
-				// Entonces chocó
-				window.location.reload();
-
+				Swal.fire({
+					title: '💥 ¡Perdiste!',
+					text: '¿Quieres volver a jugar?',
+					icon: 'error',
+					confirmButtonText: 'Reiniciar',
+					allowOutsideClick: false,
+					allowEscapeKey: false,
+					showCancelButton: false,
+					showCloseButton: false
+				}).then(() => window.location.reload());
 			}
+		}
 
-		}
 		colisionaConAlgo() {
-			return this.matriz[this.serpiente[0].x][this.serpiente[0].y] === PARED_ABAJO ||
-				this.matriz[this.serpiente[0].x][this.serpiente[0].y] === PARED_ARRIBA ||
-				this.matriz[this.serpiente[0].x][this.serpiente[0].y] === PARED_DERECHA ||
-				this.matriz[this.serpiente[0].x][this.serpiente[0].y] === PARED_IZQUIERDA
+			return [PARED_ABAJO, PARED_ARRIBA, PARED_DERECHA, PARED_IZQUIERDA].includes(
+				this.matriz[this.serpiente[0].x][this.serpiente[0].y]
+			);
 		}
-		obtenerMatrizEscenario(altura = this.longitudY, anchura = this.longitudX) {
+
+		obtenerMatrizEscenario(altura, anchura) {
 			let matriz = [];
 			for (let x = 0; x < anchura; x++) {
 				matriz.push([]);
@@ -286,98 +271,47 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 			return matriz;
 		}
+
 		dibujarMatriz() {
-			let posicionX = 0,
-				posicionY = 0;
 			for (let x = 0; x < this.matriz.length; x++) {
 				for (let y = 0; y < this.matriz[x].length; y++) {
-					switch (this.matriz[x][y]) {
-						case PIEDRA:
-							this.canvasCtx.drawImage(
-								this._imagenes.piedra,
-								x * TAMANIO_SPRITES,
-								y * TAMANIO_SPRITES,
-								TAMANIO_SPRITES,
-								TAMANIO_SPRITES
-							);
-							break;
-						case PARED_ARRIBA:
-							this.canvasCtx.drawImage(
-								this._imagenes.paredArriba,
-								x * TAMANIO_SPRITES,
-								y * TAMANIO_SPRITES,
-								TAMANIO_SPRITES,
-								TAMANIO_SPRITES
-							);
-							break;
-						case PARED_ABAJO:
-							this.canvasCtx.drawImage(
-								this._imagenes.paredAbajo,
-								x * TAMANIO_SPRITES,
-								y * TAMANIO_SPRITES,
-								TAMANIO_SPRITES,
-								TAMANIO_SPRITES
-							);
-							break;
-						case PARED_DERECHA:
-							this.canvasCtx.drawImage(
-								this._imagenes.paredDerecha,
-								x * TAMANIO_SPRITES,
-								y * TAMANIO_SPRITES,
-								TAMANIO_SPRITES,
-								TAMANIO_SPRITES
-							);
-							break;
-						case PARED_IZQUIERDA:
-							this.canvasCtx.drawImage(
-								this._imagenes.paredIzquierda,
-								x * TAMANIO_SPRITES,
-								y * TAMANIO_SPRITES,
-								TAMANIO_SPRITES,
-								TAMANIO_SPRITES
-							);
-							break;
-						case MANZANA:
-							this.canvasCtx.drawImage(
-								this._imagenes.manzana,
-								x * TAMANIO_SPRITES,
-								y * TAMANIO_SPRITES,
-								TAMANIO_SPRITES,
-								TAMANIO_SPRITES
-							);
-							break;
+					let tipo = this.matriz[x][y];
+					if (tipo === NADA) continue;
+					let imagen = null;
+					switch (tipo) {
+						case PIEDRA: imagen = this._imagenes.piedra; break;
+						case PARED_ARRIBA: imagen = this._imagenes.paredArriba; break;
+						case PARED_ABAJO: imagen = this._imagenes.paredAbajo; break;
+						case PARED_DERECHA: imagen = this._imagenes.paredDerecha; break;
+						case PARED_IZQUIERDA: imagen = this._imagenes.paredIzquierda; break;
+						case MANZANA: imagen = this._imagenes.manzana; break;
 					}
+					this.canvasCtx.drawImage(imagen, x * TAMANIO_SPRITES, y * TAMANIO_SPRITES, TAMANIO_SPRITES, TAMANIO_SPRITES);
 				}
 			}
 		}
+
 		limpiarEscenario() {
-			this.canvasCtx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-		}
-		getStatus() {
-			return { matriz: this.matriz, serpiente: this.serpiente };
+			this.canvasCtx.fillStyle = "#e0e0e0";
+			this.canvasCtx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 		}
 	}
+
 	$canvas.width = window.innerWidth;
 	$canvas.height = window.innerHeight;
-	var ctx = $canvas.getContext("2d");
-	ctx.font = "20px Verdana";
-	ctx.fillStyle = "#ffffff";
-	ctx.textAlign = "center";
-	ctx.fillText(
-		"Toca la pantalla, haz click en ella o presiona Enter para comenzar",
-		$canvas.width / 2,
-		$canvas.height / 2
-	);
 
-	ctx.fillText(
-		"Gracias por utilizar el juego",
-		$canvas.width / 2,
-		($canvas.height / 2) + 30
-	);
-	document.addEventListener("keyup", evento => {
-		if (evento.keyCode === 13 && !juegoComenzado) new Juego();
-	});
-	$canvas.addEventListener("click", () => {
+	async function mostrarPantallaInicio() {
+		await Swal.fire({
+			title: '🐍 Juego de la Serpiente',
+			text: 'Usa las flechas o haz clic para moverte en las diferentes direcciones y P para pausar/reanudar. ¡Come manzanas y evita las paredes!',
+			confirmButtonText: 'Comenzar juego',
+			allowOutsideClick: false,
+			allowEscapeKey: false,
+			showCancelButton: false,
+			showCloseButton: false
+		});
 		if (!juegoComenzado) new Juego();
-	});
+	}
+
+	mostrarPantallaInicio();
 });

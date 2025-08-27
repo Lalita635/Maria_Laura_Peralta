@@ -69,9 +69,14 @@
     <div class="panel">
       <div class="grid">
         <div class="card">
-          <h3>Validar Mail</h3>
-          <p>Lorem Ipsum</p>
-          <a class="btn" href="s_js_check_mail.html" data-i18n="ver">Ver</a>
+          <h3 data-i18n="validar_email">Validar Mail</h3>
+          <p data-i18n="validar_email_desc"> Desc</p>
+          <a class="btn ghost" data-link="s_js_check_mail.html">
+            <i class="fa fa-code" aria-hidden="true"></i> <span data-i18n="btn_example"> Ejemplo</span>
+          </a>
+          <a class="btn ghost" href="https://github.com/user-attachments/files/22015100/Validar_email.zip" download onclick="mostrarPassword(event)">
+            <i class="fas fa-file-arrow-down"></i> <span data-i18n="btn_code"> Obtener código</span>
+          </a>
         </div>
         <div class="card">
           <h3>Clima</h3>
@@ -113,7 +118,17 @@
           <a class="btn ghost" data-link="j_js_snake.html">
             <i class="fa fa-code" aria-hidden="true"></i> <span data-i18n="btn_example"> Ejemplo</span>
           </a>
-          <a class="btn ghost" href="#" download onclick="mostrarPassword(event)">
+          <a class="btn ghost" href="https://github.com/user-attachments/files/22014320/Snake.zip" download onclick="mostrarPassword(event)">
+            <i class="fas fa-file-arrow-down"></i> <span data-i18n="btn_code"> Obtener código</span>
+          </a>
+        </div>
+        <div class="card">
+          <h3>Tetris</h3>
+          <p data-i18n="tetris_desc"> Desc</p>
+          <a class="btn ghost" data-link="j_js_tetris.html">
+            <i class="fa fa-code" aria-hidden="true"></i> <span data-i18n="btn_example"> Ejemplo</span>
+          </a>
+          <a class="btn ghost" href="https://github.com/user-attachments/files/22014687/Tetris.zip" download onclick="mostrarPassword(event)">
             <i class="fas fa-file-arrow-down"></i> <span data-i18n="btn_code"> Obtener código</span>
           </a>
         </div>
@@ -270,12 +285,17 @@
           juegos_js: 'Juegos JS',
           scripts_py: 'Scripts Python',
           ciencia_datos: 'Ciencia de Datos',
+          validar_email: 'Validador de Emails',
+          validar_email_desc: 'Un validador de emails en JavaScript que te dice al instante si una dirección de correo es real o un invento del momento.',
           clima_desc: 'Script que muestra el clima (necesita permisos de ubicación).',
           ahorcado: 'Ahorcado',
           ahorcado_desc: 'Implementación sencilla y divertida del tradicional ahorcado con HTML, CSS y JavaScript.',
           memoria: 'Juego de la Memoria',
           memoria_desc: 'Desafía tu memoria con este juego web hecho en JavaScript.',
           snake_desc: 'Implementación del Snake clásico usando JavaScript y canvas, con lógica de colisión, puntuación y aumento de velocidad.',
+          tetris_desc: 'Arma líneas, rompe récords y sobrevive al caos en este Tetris hecho en JavaScript.',
+          batalla_naval: 'Batalla Naval',
+          batalla_naval_desc: '¡Apuntá, dispará y hundí barcos enemigos en este clásico de Batalla Naval hecho con Python y mucha puntería!',
           py_desc: 'Este es un ejemplo para probar el uso de PyScript.',
           csv_desc: 'Exploración de datos de un archivo CSV con pandas.',
           viz_desc: 'Gráficos con matplotlib y seaborn sobre dataset real.',
@@ -296,12 +316,17 @@
           juegos_js: 'JS Games',
           scripts_py: 'Python Scripts',
           ciencia_datos: 'Data Science',
+          validar_email: 'Email Validator',
+          validar_email_desc: 'An email validator in JavaScript that tells you instantly if an email address is real or an invention of the moment.',
           clima_desc: 'Script that shows the weather (requires location permission).',
           ahorcado: 'Hangman',
           ahorcado_desc: 'Simple and fun implementation of the traditional hangman using HTML, CSS and JavaScript.',
           memoria: 'Memory Game',
           memoria_desc: 'Challenge your memory with this JavaScript web game.',
           snake_desc: 'Implementation of the classic Snake using JavaScript and canvas, with collision logic, scoring and speed increase.',
+          tetris_desc: 'Build lines, break records and survive chaos in this Tetris made in JavaScript.',
+          batalla_naval: 'Naval Battle',
+          batalla_naval_desc: 'Aim, shoot and sink enemy ships in this classic Naval Battle made with Python and lots of aim!',
           py_desc: 'This is an example to test PyScript usage.',
           csv_desc: 'Exploration of a CSV file using pandas.',
           viz_desc: 'Graphs with matplotlib and seaborn over a real dataset.',

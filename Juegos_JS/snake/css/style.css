@@ -1,17 +1,12 @@
-canvas{
-	background-color: #40cb00;
-}
+    body,
+    html {
+    	margin: 0;
+    	padding: 0;
+    	background-color: #e0e0e0;
+    	overflow: hidden;
+    }
 
-html, body{
-	height: 100%;
-	width: 100%;
-}
-
-*{
-	margin: 0;
-	padding: 0;
-}
-
-#canvas{
-	display: block;
-}
+    canvas {
+    	display: block;
+    	background-color: #e0e0e0;
+    }
