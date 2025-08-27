@@ -18,6 +18,9 @@
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -87,12 +90,32 @@
         <div class="card">
           <h3 data-i18n="ahorcado">Ahorcado</h3>
           <p data-i18n="ahorcado_desc"> Desc</p>
-          <a class="btn" href="j_js_ahorcado.html" data-i18n="ver">Ver</a>
+          <a class="btn ghost" data-link="j_js_ahorcado.html">
+            <i class="fa fa-code" aria-hidden="true"></i> <span data-i18n="btn_example"> Ejemplo</span>
+          </a>
+          <a class="btn ghost" href="https://github.com/user-attachments/files/21999434/Ahorcado.zip" download onclick="mostrarPassword(event)">
+            <i class="fas fa-file-arrow-down"></i> <span data-i18n="btn_code"> Obtener código</span>
+          </a>
         </div>
         <div class="card">
           <h3 data-i18n="memoria">Juego de la Memoria</h3>
           <p data-i18n="memoria_desc"> Desc</p>
-          <a class="btn" href="j_js_memoria.html" data-i18n="ver">Ver</a>
+          <a class="btn ghost" data-link="j_js_memoria.html">
+            <i class="fa fa-code" aria-hidden="true"></i> <span data-i18n="btn_example"> Ejemplo</span>
+          </a>
+          <a class="btn ghost" href="https://github.com/user-attachments/files/21999461/Memoria.zip" download onclick="mostrarPassword(event)">
+            <i class="fas fa-file-arrow-down"></i> <span data-i18n="btn_code"> Obtener código</span>
+          </a>
+        </div>
+        <div class="card">
+          <h3>Snake</h3>
+          <p data-i18n="snake_desc"> Desc</p>
+          <a class="btn ghost" data-link="j_js_snake.html">
+            <i class="fa fa-code" aria-hidden="true"></i> <span data-i18n="btn_example"> Ejemplo</span>
+          </a>
+          <a class="btn ghost" href="#" download onclick="mostrarPassword(event)">
+            <i class="fas fa-file-arrow-down"></i> <span data-i18n="btn_code"> Obtener código</span>
+          </a>
         </div>
       </div>
     </div>
@@ -177,9 +200,38 @@
         }
       });
     });
-  </script>
 
-  <script>
+    //Descarga
+    function mostrarPassword(event) {
+      event.preventDefault();
+
+      const url = event.currentTarget.href;
+
+      Swal.fire({
+        title: '🔐 Contraseña del ZIP:',
+        html: '<strong><h2>Lalita635</h2></strong>',
+        icon: 'warning',
+        confirmButtonText: 'Continuar 👉',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.open(url, '_blank');
+
+          Swal.fire({
+            icon: 'success',
+            title: '¡Gracias por descargar!',
+            text: 'Si te gustó podes ayudar: ',
+            showConfirmButton: true,
+            confirmButtonText: 'Colaborar 💡',
+            allowOutsideClick: true,
+          }).then((r) => {
+            if (r.isConfirmed) {
+              window.location.href = 'colabora.html';
+            }
+          });
+        }
+      });
+    }
+
     // Acordeón funcional
     document.querySelectorAll(".accordion").forEach(acc => {
       acc.addEventListener("click", function () {
@@ -223,10 +275,13 @@
           ahorcado_desc: 'Implementación sencilla y divertida del tradicional ahorcado con HTML, CSS y JavaScript.',
           memoria: 'Juego de la Memoria',
           memoria_desc: 'Desafía tu memoria con este juego web hecho en JavaScript.',
+          snake_desc: 'Implementación del Snake clásico usando JavaScript y canvas, con lógica de colisión, puntuación y aumento de velocidad.',
           py_desc: 'Este es un ejemplo para probar el uso de PyScript.',
           csv_desc: 'Exploración de datos de un archivo CSV con pandas.',
           viz_desc: 'Gráficos con matplotlib y seaborn sobre dataset real.',
           ver: 'Ver',
+          btn_example: 'Ejemplo',
+          btn_code: 'Descargar Código',
           h_contact: 'Contacto',
           contact_pitch: '¿Trabajamos juntos? Escribime:',
           btn_send: 'Enviar',
@@ -246,10 +301,13 @@
           ahorcado_desc: 'Simple and fun implementation of the traditional hangman using HTML, CSS and JavaScript.',
           memoria: 'Memory Game',
           memoria_desc: 'Challenge your memory with this JavaScript web game.',
+          snake_desc: 'Implementation of the classic Snake using JavaScript and canvas, with collision logic, scoring and speed increase.',
           py_desc: 'This is an example to test PyScript usage.',
           csv_desc: 'Exploration of a CSV file using pandas.',
           viz_desc: 'Graphs with matplotlib and seaborn over a real dataset.',
           ver: 'See',
+          btn_example: 'Example',
+          btn_code: 'Get Code',
           h_contact: 'Contact',
           contact_pitch: "Shall we work together? Message me and I'll gladly share portfolio and projects.",
           btn_send: 'Send',
