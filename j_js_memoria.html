@@ -1,107 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio - Memoria</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio - Ahorcado</title>
 
   <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@500;700&display=swap"
+    rel="stylesheet">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <style>
-    :root {
-      --bg: #f9fafb;
-      --card: #ffffff;
-      --text: #111827;
-      --muted: #6b7280;
-      --primary: #2563eb;
-      --radius: 12px;
-      --maxw: 1080px;
-    }
+  <!-- CSS -->
+  <link rel="stylesheet" href="example.css">
 
-    body {
-      margin: 0;
-      font-family: Inter, sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      scroll-behavior: smooth;
-    }
-
-    .header {
-      background: url('portfolio.jpg') center center / cover no-repeat fixed;
-      color: white;
-      text-align: center;
-      padding: 96px 24px;
-      position: relative;
-    }
-
-    .overlay { background: rgba(0,0,0,0.45); position: absolute; inset: 0; }
-    .overlay-content { position: relative; z-index: 1; }
-
-    h1 {
-      font-family: Poppins, sans-serif;
-      font-size: clamp(32px, 6vw, 54px);
-      margin: 0 0 12px;
-      text-align: center;
-    }
-
-    .container {
-      max-width: var(--maxw);
-      margin: auto;
-      padding: clamp(48px, 5vw, 16px) 5vw;
-    }
-
-    .demo-box {
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: 0 6px 20px rgba(0,0,0,.1);
-      overflow: hidden;
-      margin-bottom: 24px;
-    }
-
-    iframe { width: 100%; height: 670px; border: none; }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 20px;
-      border-radius: 12px;
-      background: var(--primary);
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      transition: opacity 0.2s ease;
-    }
-    .btn:hover { opacity: 0.85; }
-    .btn.ghost { background: #e5e7eb; color: #111827; }
-
-    .center-btn {
-      text-align: center;
-      margin: 8px 0 6px;
-    }
-
-    .right-btns {
-      display: flex;
-      justify-content: flex-end;
-      gap: 12px;
-      margin-top: 8px;
-    }
-    .right-btns .btn { margin: 0; }
-
-    footer { text-align: center; padding: 32px; color: var(--muted); }
-  </style>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
 <body>
+  <!-- Botones de idioma -->
+  <div class="lang-switch" aria-label="Language Switcher">
+    <button id="lang-es" type="button">ES</button>
+    <button id="lang-en" type="button">EN</button>
+  </div>
+
+  <!-- Modo oscuro -->
+  <div class="theme-toggle">
+    <button id="darkToggle"><i class="fas fa-moon"></i></button>
+  </div>
 
   <header class="header">
     <div class="overlay"></div>
     <div class="overlay-content">
-      <h1>Portfolio - Memoria</h1>
-      <p class="subtitulo">Juego clásico de la memoria desarrollado con Vue.JS</p>
+      <h1 data-i18n="title">Portfolio - Memoria</h1>
+      <p class="subtitulo" data-i18n="subtitle">Juego implementado en JavaScript.</p>
     </div>
   </header>
 
@@ -111,20 +49,148 @@
     </div>
 
     <div class="center-btn">
-      <a class="btn" href="#" download>📥 Descargar ZIP</a>
+      <a class="btn" href="https://github.com/user-attachments/files/21999461/Memoria.zip" download onclick="mostrarPassword(event)">
+        <i class="fas fa-file-arrow-down"></i>
+        <span data-i18n="btn_download"> Obtener código</span>
+      </a>
+
     </div>
 
     <div class="right-btns">
-      <a class="btn ghost" href="portfolio.html">⬅ Volver al Portfolio</a>
-      <a class="btn ghost" href="index.html">🏠 Ir al Inicio</a>
+      <a class="btn ghost" href="portfolio.html">
+        <i class="fas fa-folder-open"></i>
+        <span data-i18n="portafolio"> Portfolio</span>
+      </a>
+
+      <a class="btn ghost" href="index.html">
+        <i class="fas fa-home"></i>
+        <span data-i18n="inicio"> Inicio</span>
+      </a>
     </div>
   </section>
 
   <footer>© <span id="year"></span> • María Laura Peralta</footer>
 
   <script>
+    // Año dinámico
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    cards.forEach(card => observer.observe(card));
+
+    document.querySelectorAll('.btn[data-link]').forEach(btn => {
+      btn.addEventListener('click', function (e) {
+        const link = this.getAttribute('data-link');
+
+        if (link.startsWith('mailto:')) {
+          window.location.href = link;
+        } else {
+          window.open(link, '_blank');
+        }
+      });
+    });
+
+    //Descarga
+    function mostrarPassword(event) {
+      event.preventDefault();
+
+      const url = event.currentTarget.href;
+
+      Swal.fire({
+        title: '🔐 Contraseña del ZIP:',
+        html: '<strong><h2>Lalita635</h2></strong>',
+        icon: 'warning',
+        confirmButtonText: 'Continuar 👉',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.open(url, '_blank');
+
+          Swal.fire({
+            icon: 'success',
+            title: '¡Gracias por descargar!',
+            text: 'Si te gustó podes ayudar: ',
+            showConfirmButton: true,
+            confirmButtonText: 'Colaborar 💡',
+            allowOutsideClick: true,
+          }).then((r) => {
+            if (r.isConfirmed) {
+              window.location.href = 'colabora.html';
+            }
+          });
+        }
+      });
+    }
+
+
+
+    // Modo oscuro
+    const toggle = document.getElementById("darkToggle");
+    const body = document.body;
+    if (localStorage.getItem("theme") === "dark") {
+      body.classList.add("dark");
+      toggle.innerHTML = '<i class="fas fa-sun"></i>';
+    } else {
+      toggle.innerHTML = '<i class="fas fa-moon"></i>';
+    }
+    toggle.addEventListener("click", () => {
+      body.classList.toggle("dark");
+      if (body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+        toggle.innerHTML = '<i class="fas fa-sun"></i>';
+      } else {
+        localStorage.setItem("theme", "light");
+        toggle.innerHTML = '<i class="fas fa-moon"></i>';
+      }
+    });
+
+    // Traducción
+    document.addEventListener('DOMContentLoaded', () => {
+      const DICT = {
+        es: {
+          title: 'Portfolio - Juego de la Memoria',
+          subtitle: 'Juego de memoria interactivo desarrollado con Vue.js. Utiliza control de estado reactivo, lógica de emparejamiento de imágenes, gestión de intentos. <br>El tablero se genera dinámicamente y se precargan imágenes para mejorar el rendimiento.',
+          btn_download: ' Obtener código',
+          inicio: ' Inicio'
+        },
+        en: {
+          title: 'Portfolio - Memory Game',
+          subtitle: 'Interactive memory game developed with Vue.js. It uses reactive state control, image matching logic, and intent management. <br>The board is dynamically generated, and images are preloaded to improve performance.',
+          btn_download: ' Get code',
+          inicio: ' Home'
+        }
+      };
+
+
+      function applyLang(lang) {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (DICT[lang] && DICT[lang][key]) el.innerHTML = DICT[lang][key];
+        });
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+          const key = el.getAttribute('data-i18n-placeholder');
+          if (DICT[lang] && DICT[lang][key]) el.setAttribute('placeholder', DICT[lang][key]);
+        });
+        document.getElementById('lang-es').classList.toggle('active', lang === 'es');
+        document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+        localStorage.setItem('lang', lang);
+      }
+
+      document.getElementById('lang-es').addEventListener('click', () => applyLang('es'));
+      document.getElementById('lang-en').addEventListener('click', () => applyLang('en'));
+
+      applyLang(localStorage.getItem('lang') || 'es');
+    });
+
   </script>
 
 </body>
+
 </html>

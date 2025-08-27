@@ -1,0 +1,210 @@
+:root {
+    --bg: #f9fafb;
+    --card: #ffffff;
+    --text: #111827;
+    --muted: #6b7280;
+    --primary: #2563eb;
+    --radius: 12px;
+    --maxw: 1080px;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    scroll-behavior: smooth;
+}
+
+.header {
+    background: url('portfolio.jpg') center center / cover no-repeat fixed;
+    color: white;
+    text-align: center;
+    padding: 96px 24px;
+    position: relative;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.45);
+    position: absolute;
+    inset: 0;
+}
+
+.overlay-content {
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    font-family: Poppins, sans-serif;
+    font-size: clamp(32px, 6vw, 54px);
+    margin: 0 0 12px;
+    text-align: center;
+}
+
+.container {
+    max-width: var(--maxw);
+    margin: auto;
+    padding: clamp(48px, 5vw, 16px) 5vw;
+}
+
+.demo-box {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .1);
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+iframe {
+    width: 100%;
+    height: 950px;
+    border: none;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 12px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+.btn.ghost {
+    background: #e5e7eb;
+    color: #111827;
+}
+
+.center-btn {
+    text-align: center;
+    margin: 8px 0 6px;
+}
+
+.right-btns {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.right-btns .btn {
+    margin: 0;
+}
+
+footer {
+    text-align: center;
+    padding: 32px;
+    color: var(--muted);
+}
+
+
+/* ---- COMUN ---- */
+
+/* Toggle ES/EN */
+.lang-switch {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    background: rgba(255, 255, 255, .8);
+    backdrop-filter: blur(8px);
+    border: 1px solid #e5e7eb;
+    border-radius: 999px;
+    padding: 6px 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lang-switch button {
+    background: none;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 999px;
+}
+
+.lang-switch button.active {
+    background: var(--primary);
+    color: white;
+}
+
+/* Switch Dark Mode */
+.theme-toggle {
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    border-radius: 999px;
+    padding: 6px 10px;
+    border: 1px solid #e5e7eb;
+}
+
+.theme-toggle button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #111827;
+}
+
+body.dark .theme-toggle {
+    background: rgba(30, 41, 59, 0.8);
+    border-color: #334155;
+}
+
+body.dark .theme-toggle button {
+    color: #f1f5f9;
+}
+
+/* Web Dark */
+body.dark {
+    background-color: #0f172a;
+    color: #f1f5f9;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark .card {
+    background: #1e293b;
+    color: #f1f5f9;
+    border: 1px solid #334155;
+}
+
+body.dark h2,
+body.dark h4 {
+    color: #1e293b;
+}
+
+body.dark h3 {
+    color: #f1f5f9;
+}
+
+
+body.dark .btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #f1f5f9;
+}
+
+body.dark .btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+
+body.dark input,
+body.dark textarea {
+    background: #1e293b;
+    border: 1px solid #475569;
+    color: #f1f5f9;
+}

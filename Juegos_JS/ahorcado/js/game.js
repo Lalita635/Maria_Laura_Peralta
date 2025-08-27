@@ -10,11 +10,14 @@ new Vue({
         remainingAttempts: 0,
     }),
     async mounted() {
-        await Swal.fire(
-            'Ahorcado',
-            'Juga al ahorcado online',
-            'info'
-        );
+        await Swal.fire({
+            title: '🎮 Ahorcado',
+            confirmButtonText: 'Comenzar juego',
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            showCancelButton: false,
+            showCloseButton: false
+        });
         this.resetGame();
     },
     methods: {

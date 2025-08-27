@@ -1,241 +1,302 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio — María Laura Peralta</title>
 
   <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@500;700&display=swap"
+    rel="stylesheet">
 
-  <!-- CSS global -->
+  <!-- CSS -->
   <link rel="stylesheet" href="portfolio.css">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
+
 <body>
 
-<!-- Botones de idioma -->
-<div class="lang-switch" aria-label="Language Switcher">
-  <button id="lang-es" type="button">ES</button>
-  <button id="lang-en" type="button">EN</button>
-</div>
-
-<!-- Modo oscuro -->
-<div class="theme-toggle">
-  <button id="darkToggle"><i class="fas fa-moon"></i></button>
-</div>
-
-<!-- Header -->
-<header class="header">
-  <div class="overlay"></div>
-  <div class="overlay-content">
-    <h1 data-i18n="portfolio_title">Portfolio</h1>
-    <p class="subtitulo" data-i18n="portfolio_subtitle">
-      Esta sección reúne una selección de proyectos desarrollados durante mi formación y experiencia práctica. Incluye scripts funcionales en JavaScript y Python, juegos interactivos, automatizaciones simples y notebooks de análisis de datos. Cada uno refleja distintas habilidades técnicas aplicadas a la resolución de problemas concretos, exploración de datos y desarrollo web.
-    </p>
+  <!-- Botones de idioma -->
+  <div class="lang-switch" aria-label="Language Switcher">
+    <button id="lang-es" type="button">ES</button>
+    <button id="lang-en" type="button">EN</button>
   </div>
-</header>
 
-<!-- Secciones de proyectos -->
-<section class="container_section">
+  <!-- Modo oscuro -->
+  <div class="theme-toggle">
+    <button id="darkToggle"><i class="fas fa-moon"></i></button>
+  </div>
 
-  <!-- Scripts JS -->
-  <div class="accordion"><h2 data-i18n="scripts_js">Scripts JS <i class="fas fa-chevron-right"></i></h2></div>
-  <div class="panel">
-    <div class="grid">
-      <div class="card">
-        <h3>Validar Mail</h3>
-        <p>Lorem Ipsum</p>
-        <a class="btn" href="s_js_check_mail.html" data-i18n="ver">Ver</a>
-      </div>
-      <div class="card">
-        <h3>Clima</h3>
-        <p data-i18n="clima_desc">Script que muestra el clima (necesita permisos de ubicación).</p>
-        <a class="btn" href="s_js_clima.html" data-i18n="ver">Ver</a>
+  <!-- Header -->
+  <section class="header">
+    <div class="overlay"></div>
+    <div class="overlay-content">
+      <h1>Portafolio</h1>
+      <p class="subtitulo" data-i18n="subtitle">
+        Esta sección reúne una selección de proyectos desarrollados durante mi formación y experiencia práctica. Incluye
+        scripts funcionales en JavaScript y Python, juegos interactivos, automatizaciones simples y notebooks de
+        análisis de datos. Cada uno refleja distintas habilidades técnicas aplicadas a la resolución de problemas
+        concretos, exploración de datos y desarrollo web.
+      </p>
+      <div class="btns">
+        <a class="btn ghost" data-link="index.html"><i class="fas fa-home"></i> <span data-i18n="inicio">
+            Inicio</span></a>
+        <a class="btn ghost" data-link="cv_maria_laura_peralta.pdf" download><i class="fas fa-file-arrow-down"></i>
+          <span data-i18n="btn_download"> Descargar CV</span></a>
+        <a class="btn ghost" data-link="https://linkedin.com/in/tuusuario"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a class="btn ghost" data-link="#contacto"><i class="fas fa-envelope"></i> <span data-i18n="btn_contact">
+            Contacto</a>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Juegos JS -->
-  <div class="accordion"><h2 data-i18n="juegos_js">Juegos JS <i class="fas fa-chevron-right"></i></h2></div>
-  <div class="panel">
-    <div class="grid">
-      <div class="card">
-        <h3>Ahorcado</h3>
-        <p data-i18n="ahorcado_desc">Juego clásico del ahorcado implementado en JavaScript.</p>
-        <a class="btn" href="j_js_ahorcado.html" data-i18n="ver">Ver</a>
+  <!-- Secciones de proyectos -->
+  <section class="container_section">
+
+    <!-- Scripts JS -->
+    <div class="accordion" id="scripts_js">
+      <h2 data-i18n="scripts_js">Scripts JS <i class="fas fa-chevron-right"></i></h2>
+    </div>
+    <div class="panel">
+      <div class="grid">
+        <div class="card">
+          <h3>Validar Mail</h3>
+          <p>Lorem Ipsum</p>
+          <a class="btn" href="s_js_check_mail.html" data-i18n="ver">Ver</a>
+        </div>
+        <div class="card">
+          <h3>Clima</h3>
+          <p data-i18n="clima_desc">Script que muestra el clima (necesita permisos de ubicación).</p>
+          <a class="btn" href="s_js_clima.html" data-i18n="ver">Ver</a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Scripts Python -->
-  <div class="accordion"><h2 data-i18n="scripts_py">Scripts Python <i class="fas fa-chevron-right"></i></h2></div>
-  <div class="panel">
-    <div class="grid">
-      <div class="card">
-        <h3>Script Ejemplo</h3>
-        <p data-i18n="py_desc">Este es un ejemplo para probar el uso de PyScript.</p>
-        <a class="btn" href="s_py_probando_PyScript.html" data-i18n="ver">Ver</a>
+    <!-- Juegos JS -->
+    <div class="accordion" id="games_js">
+      <h2 data-i18n="juegos_js">Juegos JS <i class="fas fa-chevron-right"></i></h2>
+    </div>
+    <div class="panel">
+      <div class="grid">
+        <div class="card">
+          <h3 data-i18n="ahorcado">Ahorcado</h3>
+          <p data-i18n="ahorcado_desc"> Desc</p>
+          <a class="btn" href="j_js_ahorcado.html" data-i18n="ver">Ver</a>
+        </div>
+        <div class="card">
+          <h3 data-i18n="memoria">Juego de la Memoria</h3>
+          <p data-i18n="memoria_desc"> Desc</p>
+          <a class="btn" href="j_js_memoria.html" data-i18n="ver">Ver</a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Ciencia de Datos -->
-  <div class="accordion"><h2 data-i18n="ciencia_datos">Ciencia de Datos <i class="fas fa-chevron-right"></i></h2></div>
-  <div class="panel">
-    <div class="grid">
-      <div class="card">
-        <h3>Análisis de CSV</h3>
-        <p data-i18n="csv_desc">Exploración de datos de un archivo CSV con pandas.</p>
-        <a class="btn" href="#" data-i18n="ver">Ver código</a>
-      </div>
-      <div class="card">
-        <h3>Visualización de Datos</h3>
-        <p data-i18n="viz_desc">Gráficos con matplotlib y seaborn sobre dataset real.</p>
-        <a class="btn" href="#" data-i18n="ver">Ver código</a>
+    <!-- Scripts Python -->
+    <div class="accordion" id="scripts_py">
+      <h2 data-i18n="scripts_py">Scripts Python <i class="fas fa-chevron-right"></i></h2>
+    </div>
+    <div class="panel">
+      <div class="grid">
+        <div class="card">
+          <h3>Script Ejemplo</h3>
+          <p data-i18n="py_desc">Este es un ejemplo para probar el uso de PyScript.</p>
+          <a class="btn" href="s_py_probando_PyScript.html" data-i18n="ver">Ver</a>
+        </div>
       </div>
     </div>
-  </div>
 
-</section>
-
-<!-- Contacto -->
-<section id="contacto">
-  <div class="container" style="max-width:700px">
-    <div class="card" style="text-align:center">
-      <h2 data-i18n="h_contact">Contacto</h2>
-      <p data-i18n="contact_pitch">¿Trabajamos juntos? Escribime:</p>
-      <form id="contact-form">
-        <input type="text" name="name" placeholder="" required data-i18n-placeholder="form_name_ph">
-        <input type="email" name="email" placeholder="" required data-i18n-placeholder="form_email_ph">
-        <textarea name="message" rows="4" placeholder="" required data-i18n-placeholder="form_message_ph"></textarea>
-        <button type="submit" class="btn primary" data-i18n="btn_send">
-          <i class="fas fa-paper-plane"></i> Enviar
-        </button>
-      </form>
+    <!-- Ciencia de Datos -->
+    <div class="accordion" id="data_science">
+      <h2 data-i18n="ciencia_datos">Ciencia de Datos <i class="fas fa-chevron-right"></i></h2>
     </div>
-    <footer>© <span id="year"></span> • María Laura Peralta</footer>
-  </div>
-</section>
+    <div class="panel">
+      <div class="grid">
+        <div class="card">
+          <h3>Análisis de CSV</h3>
+          <p data-i18n="csv_desc">Exploración de datos de un archivo CSV con pandas.</p>
+          <a class="btn" href="#" data-i18n="ver">Ver código</a>
+        </div>
+        <div class="card">
+          <h3>Visualización de Datos</h3>
+          <p data-i18n="viz_desc">Gráficos con matplotlib y seaborn sobre dataset real.</p>
+          <a class="btn" href="#" data-i18n="ver">Ver código</a>
+        </div>
+      </div>
+    </div>
 
-<script>
-// Año dinámico
-document.getElementById("year").textContent = new Date().getFullYear();
+  </section>
 
-// Acordeón funcional
-document.querySelectorAll(".accordion").forEach(acc => {
-  acc.addEventListener("click", function () {
-    this.classList.toggle("active");
-    const panel = this.nextElementSibling;
-    panel.style.display = panel.style.display === "block" ? "none" : "block";
-  });
-});
+  <!-- Contacto -->
+  <section id="contacto">
+    <div class="container" style="max-width:700px">
+      <div class="card visible" style="text-align:center">
+        <h3 data-i18n="h_contact">Contacto</h3>
+        <p data-i18n="contact_pitch">¿Trabajamos juntos? Escribime:</p>
+        <form id="contact-form">
+          <input type="text" name="name" placeholder="" required data-i18n-placeholder="form_name_ph">
+          <input type="email" name="email" placeholder="" required data-i18n-placeholder="form_email_ph">
+          <textarea name="message" rows="4" placeholder="" required data-i18n-placeholder="form_message_ph"></textarea>
+          <button type="submit" class="btn primary" data-i18n="btn_send">
+            <i class="fas fa-paper-plane"></i> Enviar
+          </button>
+        </form>
+      </div>
+      <footer>© <span id="year"></span> • María Laura Peralta</footer>
+    </div>
+  </section>
 
-// Modo oscuro
-const toggle = document.getElementById("darkToggle");
-const body = document.body;
-if (localStorage.getItem("theme") === "dark") {
-  body.classList.add("dark");
-  toggle.innerHTML = '<i class="fas fa-sun"></i>';
-} else {
-  toggle.innerHTML = '<i class="fas fa-moon"></i>';
-}
-toggle.addEventListener("click", () => {
-  body.classList.toggle("dark");
-  if (body.classList.contains("dark")) {
-    localStorage.setItem("theme", "dark");
-    toggle.innerHTML = '<i class="fas fa-sun"></i>';
-  } else {
-    localStorage.setItem("theme", "light");
-    toggle.innerHTML = '<i class="fas fa-moon"></i>';
-  }
-});
+  <script>
+    // Año dinámico
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-// Traducción
-document.addEventListener('DOMContentLoaded', () => {
-  const DICT = {
-    es: {
-      portfolio_title: 'Portfolio',
-      portfolio_subtitle: 'Esta sección reúne una selección de proyectos desarrollados durante mi formación y experiencia práctica. Incluye scripts funcionales en JavaScript y Python, juegos interactivos, automatizaciones simples y notebooks de análisis de datos. Cada uno refleja distintas habilidades técnicas aplicadas a la resolución de problemas concretos, exploración de datos y desarrollo web.',
-      scripts_js: 'Scripts JS',
-      juegos_js: 'Juegos JS',
-      scripts_py: 'Scripts Python',
-      ciencia_datos: 'Ciencia de Datos',
-      clima_desc: 'Script que muestra el clima (necesita permisos de ubicación).',
-      ahorcado_desc: 'Juego clásico del ahorcado implementado en JavaScript.',
-      py_desc: 'Este es un ejemplo para probar el uso de PyScript.',
-      csv_desc: 'Exploración de datos de un archivo CSV con pandas.',
-      viz_desc: 'Gráficos con matplotlib y seaborn sobre dataset real.',
-      ver: 'Ver',
-      h_contact: 'Contacto',
-      contact_pitch: '¿Trabajamos juntos? Escribime:',
-      btn_send: 'Enviar',
-      form_name_ph: 'Tu nombre',
-      form_email_ph: 'Tu email',
-      form_message_ph: 'Tu mensaje'
-    },
-    en: {
-      portfolio_title: 'Portfolio',
-      portfolio_subtitle: 'This section brings together a selection of projects developed during my training and practical experience. It includes functional scripts in JavaScript and Python, interactive games, simple automations, and data analysis notebooks. Each reflects distinct technical skills applied to specific problem-solving, data exploration, and web development.',
-      scripts_js: 'JS Scripts',
-      juegos_js: 'JS Games',
-      scripts_py: 'Python Scripts',
-      ciencia_datos: 'Data Science',
-      clima_desc: 'Script that shows the weather (requires location permission).',
-      ahorcado_desc: 'Classic hangman game implemented in JavaScript.',
-      py_desc: 'This is an example to test PyScript usage.',
-      csv_desc: 'Exploration of a CSV file using pandas.',
-      viz_desc: 'Graphs with matplotlib and seaborn over a real dataset.',
-      ver: 'See',
-      h_contact: 'Contact',
-      contact_pitch: "Shall we work together? Message me and I'll gladly share portfolio and projects.",
-      btn_send: 'Send',
-      form_name_ph: 'Your name',
-      form_email_ph: 'Your email',
-      form_message_ph: 'Your message'
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    cards.forEach(card => observer.observe(card));
+
+    document.querySelectorAll('.btn[data-link]').forEach(btn => {
+      btn.addEventListener('click', function (e) {
+        const link = this.getAttribute('data-link');
+
+        if (link.startsWith('mailto:')) {
+          window.location.href = link;
+        } else {
+          window.open(link, '_blank');
+        }
+      });
+    });
+  </script>
+
+  <script>
+    // Acordeón funcional
+    document.querySelectorAll(".accordion").forEach(acc => {
+      acc.addEventListener("click", function () {
+        this.classList.toggle("active");
+        const panel = this.nextElementSibling;
+        panel.style.display = panel.style.display === "block" ? "none" : "block";
+      });
+    });
+
+    // Modo oscuro
+    const toggle = document.getElementById("darkToggle");
+    const body = document.body;
+    if (localStorage.getItem("theme") === "dark") {
+      body.classList.add("dark");
+      toggle.innerHTML = '<i class="fas fa-sun"></i>';
+    } else {
+      toggle.innerHTML = '<i class="fas fa-moon"></i>';
     }
-  };
-
-  function applyLang(lang) {
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (DICT[lang] && DICT[lang][key]) el.textContent = DICT[lang][key];
+    toggle.addEventListener("click", () => {
+      body.classList.toggle("dark");
+      if (body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+        toggle.innerHTML = '<i class="fas fa-sun"></i>';
+      } else {
+        localStorage.setItem("theme", "light");
+        toggle.innerHTML = '<i class="fas fa-moon"></i>';
+      }
     });
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-      const key = el.getAttribute('data-i18n-placeholder');
-      if (DICT[lang] && DICT[lang][key]) el.setAttribute('placeholder', DICT[lang][key]);
+
+    // Traducción
+    document.addEventListener('DOMContentLoaded', () => {
+      const DICT = {
+        es: {
+          subtitle: 'Esta sección reúne una selección de proyectos desarrollados durante mi formación y experiencia práctica. Incluye scripts funcionales en JavaScript y Python, juegos interactivos, automatizaciones simples y notebooks de análisis de datos. Cada uno refleja distintas habilidades técnicas aplicadas a la resolución de problemas concretos, exploración de datos y desarrollo web.',
+          scripts_js: 'Scripts JS',
+          juegos_js: 'Juegos JS',
+          scripts_py: 'Scripts Python',
+          ciencia_datos: 'Ciencia de Datos',
+          clima_desc: 'Script que muestra el clima (necesita permisos de ubicación).',
+          ahorcado: 'Ahorcado',
+          ahorcado_desc: 'Implementación sencilla y divertida del tradicional ahorcado con HTML, CSS y JavaScript.',
+          memoria: 'Juego de la Memoria',
+          memoria_desc: 'Desafía tu memoria con este juego web hecho en JavaScript.',
+          py_desc: 'Este es un ejemplo para probar el uso de PyScript.',
+          csv_desc: 'Exploración de datos de un archivo CSV con pandas.',
+          viz_desc: 'Gráficos con matplotlib y seaborn sobre dataset real.',
+          ver: 'Ver',
+          h_contact: 'Contacto',
+          contact_pitch: '¿Trabajamos juntos? Escribime:',
+          btn_send: 'Enviar',
+          form_name_ph: 'Tu nombre',
+          form_email_ph: 'Tu email',
+          form_message_ph: 'Tu mensaje',
+          inicio: 'Inicio'
+        },
+        en: {
+          subtitle: 'This section brings together a selection of projects developed during my training and practical experience. It includes functional scripts in JavaScript and Python, interactive games, simple automations, and data analysis notebooks. Each reflects distinct technical skills applied to specific problem-solving, data exploration, and web development.',
+          scripts_js: 'JS Scripts',
+          juegos_js: 'JS Games',
+          scripts_py: 'Python Scripts',
+          ciencia_datos: 'Data Science',
+          clima_desc: 'Script that shows the weather (requires location permission).',
+          ahorcado: 'Hangman',
+          ahorcado_desc: 'Simple and fun implementation of the traditional hangman using HTML, CSS and JavaScript.',
+          memoria: 'Memory Game',
+          memoria_desc: 'Challenge your memory with this JavaScript web game.',
+          py_desc: 'This is an example to test PyScript usage.',
+          csv_desc: 'Exploration of a CSV file using pandas.',
+          viz_desc: 'Graphs with matplotlib and seaborn over a real dataset.',
+          ver: 'See',
+          h_contact: 'Contact',
+          contact_pitch: "Shall we work together? Message me and I'll gladly share portfolio and projects.",
+          btn_send: 'Send',
+          form_name_ph: 'Your name',
+          form_email_ph: 'Your email',
+          form_message_ph: 'Your message',
+          inicio: 'Home'
+        }
+      };
+
+      function applyLang(lang) {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (DICT[lang] && DICT[lang][key]) el.textContent = DICT[lang][key];
+        });
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+          const key = el.getAttribute('data-i18n-placeholder');
+          if (DICT[lang] && DICT[lang][key]) el.setAttribute('placeholder', DICT[lang][key]);
+        });
+        document.getElementById('lang-es').classList.toggle('active', lang === 'es');
+        document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+        localStorage.setItem('lang', lang);
+      }
+
+      document.getElementById('lang-es').addEventListener('click', () => applyLang('es'));
+      document.getElementById('lang-en').addEventListener('click', () => applyLang('en'));
+
+      applyLang(localStorage.getItem('lang') || 'es');
     });
-    document.getElementById('lang-es').classList.toggle('active', lang === 'es');
-    document.getElementById('lang-en').classList.toggle('active', lang === 'en');
-    localStorage.setItem('lang', lang);
-  }
 
-  document.getElementById('lang-es').addEventListener('click', () => applyLang('es'));
-  document.getElementById('lang-en').addEventListener('click', () => applyLang('en'));
-
-  applyLang(localStorage.getItem('lang') || 'es');
-});
-
-// Formulario contacto
-document.addEventListener('DOMContentLoaded', () => {
-  const cf = document.getElementById('contact-form');
-  if (cf) {
-    cf.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const name = this.name.value.trim();
-      const email = this.email.value.trim();
-      const message = this.message.value.trim();
-      const subject = encodeURIComponent('Contacto desde Portfolio Web');
-      const body = encodeURIComponent(`Nombre: ${name}\nEmail: ${email}\n\n${message}`);
-      window.location.href = `mailto:lali.635@gmail.com?subject=${subject}&body=${body}`;
+    // Formulario contacto
+    document.addEventListener('DOMContentLoaded', () => {
+      const cf = document.getElementById('contact-form');
+      if (cf) {
+        cf.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const name = this.name.value.trim();
+          const email = this.email.value.trim();
+          const message = this.message.value.trim();
+          const subject = encodeURIComponent('Contacto desde Portfolio Web');
+          const body = encodeURIComponent(`Nombre: ${name}\nEmail: ${email}\n\n${message}`);
+          window.location.href = `mailto:lali.635@gmail.com?subject=${subject}&body=${body}`;
+        });
+      }
     });
-  }
-});
-</script>
+  </script>
 
 </body>
+
 </html>

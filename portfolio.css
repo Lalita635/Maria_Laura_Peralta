@@ -121,26 +121,69 @@
     transform: translateY(-6px);
   }
 
-  .btn {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 10px 16px;
-    border-radius: 12px;
-    background: var(--primary);
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    transition: opacity 0.2s ease;
+  .btns {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+    justify-content: center;
   }
 
-  .btn:hover {
-    opacity: 0.85;
+  .btn {
+    padding: 12px 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s;
+  }
+
+  .btn.primary {
+    background: var(--primary);
+    color: white;
   }
 
   .btn.ghost {
     background: #e5e7eb;
     color: #111827;
   }
+
+  .btn:hover {
+    opacity: .85;
+  }
+
+  .btn i {
+    margin-right: 8px;
+  }
+
+  .btns {
+    justify-content: center;
+  }
+
+  /* Botonera del héroe */
+  #inicio .btns {
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  #inicio .btn {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(6px);
+  }
+
+  #inicio .btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    color: #111;
+  }
+
+  /* efecto suavizado */
+  #inicio .btns {
+    animation: fadeUp 1s ease forwards;
+    opacity: 0;
+  }
+
 
   @keyframes fade {
     from {
@@ -169,6 +212,10 @@
     transform: rotate(90deg);
   }
 
+  .card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
   /* Switch Dark Mode */
   .theme-toggle {
@@ -214,10 +261,14 @@
   }
 
   body.dark h2,
-  body.dark h3,
   body.dark h4 {
     color: #1e293b;
   }
+
+  body.dark h3 {
+    color: #f1f5f9;
+  }
+
 
   body.dark .btn {
     background: rgba(255, 255, 255, 0.1);
@@ -229,6 +280,7 @@
     background: rgba(255, 255, 255, 0.2);
     color: #fff;
   }
+
 
   body.dark input,
   body.dark textarea {
@@ -285,7 +337,7 @@
   #contact-form input,
   #contact-form textarea {
     width: 100%;
-    padding: 14px 16px;
+    padding: 14px 5px;
     border: 1px solid #d1d5db;
     border-radius: 10px;
     font-size: 1rem;
@@ -312,4 +364,28 @@
 
   #contact-form button:hover {
     background: #1e40af;
+  }
+
+  .dots {
+    position: fixed;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 999;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #9ca3af;
+    display: block;
+  }
+
+  .dot.active {
+    background: var(--primary);
+    transform: scale(1.2);
   }

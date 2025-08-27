@@ -13,7 +13,7 @@ new Vue({
             this.words = getWords();
         },
         saveWord() {
-            // Limpiar de nuevo ._.
+            // Limpiar de nuevo
             this.deleteWhiteSpaces();
             const word = this.newWord.toUpperCase();
             // Guardar solo si no existe

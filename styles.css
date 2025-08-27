@@ -303,7 +303,7 @@
     #contact-form input,
     #contact-form textarea {
       width: 100%;
-      padding: 14px 16px;
+      padding: 14px 5px;
       border: 1px solid #d1d5db;
       border-radius: 10px;
       font-size: 1rem;
