@@ -17,24 +17,25 @@ const setWeatherData = data => {
         date: getDate(),
     }
 
-    Object.keys(weatherData).forEach( key => {
+    Object.keys(weatherData).forEach(key => {
         setTextContent(key, weatherData[key]);
     });
 
     cleanUp();
+    setCredits();
 }
 
 const cleanUp = () => {
     let container = document.getElementById('container');
     let loader = document.getElementById('loader');
 
-    loader.style.display = 'none'; 
-    container.style.display = 'flex'; 
+    loader.style.display = 'none';
+    container.style.display = 'flex';
 }
 
 const getDate = () => {
     let date = new Date();
-    return `${date.getDate()}-${ ('0' + (date.getMonth() + 1)).slice(-2)}-${date.getFullYear()}`;
+    return `${date.getDate()}-${('0' + (date.getMonth() + 1)).slice(-2)}-${date.getFullYear()}`;
 }
 
 const setTextContent = (element, text) => {
@@ -44,3 +45,10 @@ const setTextContent = (element, text) => {
 const onLoad = () => {
     navigator.geolocation.getCurrentPosition(fetchData)
 }
+
+const setCredits = () => {
+    const creditsElement = document.getElementById('credits');
+    creditsElement.textContent = 'By Lalita635';
+}
+
+

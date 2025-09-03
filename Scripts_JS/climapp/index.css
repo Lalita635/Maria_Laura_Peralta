@@ -1,43 +1,44 @@
 * {
-    font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #2A3D45;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #2A3D45;
 }
 
 .contaier {
-    background-color: #DDC9B4;
-    padding: 20px;
-    color: #2A3D45;
-    display: flex;
-    display: none;
+  background-color: #DDC9B4;
+  padding: 20px;
+  color: #2A3D45;
+  display: flex;
+  display: none;
 }
 
-.contaier > .block {
-    padding: 20px;
+.contaier>.block {
+  padding: 20px;
 }
 
 .block:first-child {
- background-color: #2A3D45;
- color: #DDC9B4;
+  background-color: #2A3D45;
+  color: #DDC9B4;
 }
 
 .information-container {
-    display: flex;
+  display: flex;
 }
 
 .information {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
 #location {
-    font-weight: bold;
-    font-size: 22px;  
+  font-weight: bold;
+  font-size: 22px;
 }
 
 .loader,
@@ -45,6 +46,7 @@ body {
 .loader:after {
   border-radius: 50%;
 }
+
 .loader {
   color: #DDC9B4;
   font-size: 11px;
@@ -57,11 +59,13 @@ body {
   -ms-transform: translateZ(0);
   transform: translateZ(0);
 }
+
 .loader:before,
 .loader:after {
   position: absolute;
   content: '';
 }
+
 .loader:before {
   width: 5.2em;
   height: 10.2em;
@@ -74,6 +78,7 @@ body {
   -webkit-animation: load2 2s infinite ease 1.5s;
   animation: load2 2s infinite ease 1.5s;
 }
+
 .loader:after {
   width: 5.2em;
   height: 10.2em;
@@ -86,23 +91,36 @@ body {
   -webkit-animation: load2 2s infinite ease;
   animation: load2 2s infinite ease;
 }
+
 @-webkit-keyframes load2 {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
+
 @keyframes load2 {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
+}
+
+#credits {
+  color: #DDC9B4;
+  font-size: 0.9em;
+  text-align: center;
+  margin-top: 15px;
+  font-style: italic;
+  letter-spacing: 0.5px;
 }

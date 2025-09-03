@@ -12,6 +12,10 @@ const obtenerXReal = (clientX) => clientX - $canvas.getBoundingClientRect().left
 const obtenerYReal = (clientY) => clientY - $canvas.getBoundingClientRect().top;
 let haComenzadoDibujo = false; // Bandera que indica si el usuario está presionando el botón del mouse sin soltarlo
 
+const setCredits = () => {
+    const creditsElement = document.getElementById('credits');
+    creditsElement.textContent = 'By Lalita635';
+}
 
 const limpiarCanvas = () => {
     // Colocar color blanco en fondo de canvas
@@ -76,3 +80,5 @@ $canvas.addEventListener("mousemove", (evento) => {
         haComenzadoDibujo = false;
     });
 });
+
+setCredits();

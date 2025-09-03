@@ -9,6 +9,12 @@ function inicio () {
 	document.getElementById("continuar").disabled = true;
 	document.getElementById("reinicio").disabled = false;
 }
+
+const setCredits = () => {
+    const creditsElement = document.getElementById('credits');
+    creditsElement.textContent = 'By Lalita635';
+}
+
 function parar () {
 	clearInterval(control);
 	document.getElementById("parar").disabled = true;
@@ -59,4 +65,7 @@ function cronometro () {
 		if (horas < 10) { horas = "0"+horas }
 		Horas.innerHTML = horas;
 	}
+
+	setCredits();
 }
+
