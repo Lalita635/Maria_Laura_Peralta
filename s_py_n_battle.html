@@ -149,7 +149,7 @@ def jugar(disparos_iniciales=DISPAROS_INICIALES, cantidad_barcos=CANTIDAD_BARCOS
     </div>
 
     <div class="center-btn">
-      <a class="btn" href="https://github.com/user-attachments/files/22225337/Naval_Battle.zip" download onclick="mostrarPassword(event)">
+      <a class="btn" href="hhttps://github.com/user-attachments/files/22235239/Batalla_Naval.zip" download onclick="mostrarPassword(event)">
         <i class="fas fa-file-arrow-down"></i>
         <span data-i18n="btn_download"> Obtener código</span>
       </a>
@@ -187,16 +187,20 @@ def jugar(disparos_iniciales=DISPAROS_INICIALES, cantidad_barcos=CANTIDAD_BARCOS
     cards.forEach(card => observer.observe(card));
 
     document.querySelectorAll('.btn[data-link]').forEach(btn => {
-      btn.addEventListener('click', function (e) {
-        const link = this.getAttribute('data-link');
+  btn.addEventListener('click', function (e) {
+    const link = this.getAttribute('data-link');
 
-        if (link.startsWith('mailto:')) {
-          window.location.href = link;
-        } else {
-          window.open(link, '_blank');
-        }
-      });
-    });
+    if (link.startsWith('mailto:')) {
+      window.location.href = link;
+    } else if (link.startsWith('http')) {
+      // Enlaces externos -> nueva pestaña
+      window.open(link, '_blank');
+    } else {
+      // Subpáginas internas -> misma pestaña
+      window.location.href = link;
+    }
+  });
+});
 
     //Descarga
     function mostrarPassword(event) {

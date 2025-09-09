@@ -222,11 +222,30 @@
           <a class="btn ghost" data-link="s_py_n_battle.html">
             <i class="fa fa-code" aria-hidden="true"></i> <span data-i18n="btn_ver_code"> Ver Código</span>
           </a>
-          <a class="btn ghost" href="https://github.com/user-attachments/files/22225337/Naval_Battle.zip" download onclick="mostrarPassword(event)">
+          <a class="btn ghost" href="https://github.com/user-attachments/files/22235239/Batalla_Naval.zip" download onclick="mostrarPassword(event)">
             <i class="fas fa-file-arrow-down"></i> <span data-i18n="btn_code"> Obtener código</span>
           </a>
         </div>
-      
+        <div class="card">
+          <h3 data-i18n="ppt"> Título</h3>
+          <p data-i18n="ppt_desc"> Desc</p>
+          <a class="btn ghost" data-link="s_py_ppt.html">
+            <i class="fa fa-code" aria-hidden="true"></i> <span data-i18n="btn_ver_code"> Ver Código</span>
+          </a>
+          <a class="btn ghost" href="https://github.com/user-attachments/files/22235111/Piedra_Papel_Tijera.zip" download onclick="mostrarPassword(event)">
+            <i class="fas fa-file-arrow-down"></i> <span data-i18n="btn_code"> Obtener código</span>
+          </a>
+        </div>
+        <div class="card">
+          <h3 data-i18n="ttt"> Título</h3>
+          <p data-i18n="ttt_desc"> Desc</p>
+          <a class="btn ghost" data-link="s_py_ttt.html">
+            <i class="fa fa-code" aria-hidden="true"></i> <span data-i18n="btn_ver_code"> Ver Código</span>
+          </a>
+          <a class="btn ghost" href="https://github.com/user-attachments/files/22235469/Ta_Te_Ti.zip" download onclick="mostrarPassword(event)">
+            <i class="fas fa-file-arrow-down"></i> <span data-i18n="btn_code"> Obtener código</span>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -286,16 +305,20 @@
     cards.forEach(card => observer.observe(card));
 
     document.querySelectorAll('.btn[data-link]').forEach(btn => {
-      btn.addEventListener('click', function (e) {
-        const link = this.getAttribute('data-link');
+  btn.addEventListener('click', function (e) {
+    const link = this.getAttribute('data-link');
 
-        if (link.startsWith('mailto:')) {
-          window.location.href = link;
-        } else {
-          window.open(link, '_blank');
-        }
-      });
-    });
+    if (link.startsWith('mailto:')) {
+      window.location.href = link;
+    } else if (link.startsWith('http')) {
+      // Enlaces externos -> nueva pestaña
+      window.open(link, '_blank');
+    } else {
+      // Subpáginas internas -> misma pestaña
+      window.location.href = link;
+    }
+  });
+});
 
     //Descarga
     function mostrarPassword(event) {
@@ -392,7 +415,10 @@
           down_video_desc: 'Este script en Python permite descargar videos de YouTube en la mejor calidad disponible usando la librería pytube',
           n_battle: 'Batalla Naval',
           n_battle_desc: '¡Apuntá, dispará y hundí barcos enemigos en este clásico de Batalla Naval hecho con Python y mucha puntería!',
-          
+          ppt: 'Piedra, Papel o Tijera',
+          ppt_desc: 'El clásico juego del piedra papel y tijera y su versión TBBT.',
+          ttt: 'Ta Te Ti',
+          ttt_desc: 'Elegí el nivel que preferas para este entretenido juego. Cuidado con el último nivel.',
           csv_desc: 'Exploración de datos de un archivo CSV con pandas.',
           viz_desc: 'Gráficos con matplotlib y seaborn sobre dataset real.',
           ver: 'Ver',
@@ -439,6 +465,10 @@
           down_diveo_desc: 'This Python script allows you to download YouTube videos in the best quality available using the pytube library.',
           n_battle: 'Naval Battle',
           n_battle_desc: 'Aim, shoot and sink enemy ships in this classic Naval Battle made with Python and lots of aim!',
+          ppt: 'Rock, Paper, Scissors',
+          ppt_desc: 'The classic game of rock, paper, scissors and its TBBT version.',
+          ttt: 'Tic Tac Toe',
+          ttt_desc: 'Choose your preferred level for this fun game. Watch out for the last level.',
           py_desc: 'This is an example to test PyScript usage.',
           csv_desc: 'Exploration of a CSV file using pandas.',
           viz_desc: 'Graphs with matplotlib and seaborn over a real dataset.',

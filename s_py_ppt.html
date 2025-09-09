@@ -21,6 +21,57 @@
 
   <!-- SweetAlert2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!-- Highlight.js -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+
+  <!-- Highlight.js script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+
+  <style>
+    pre code {
+      font-size: 0.9em;
+      border-radius: 5px;
+      padding: 1em;
+      display: block;
+      overflow-x: auto;
+      background: #2d2d2d;
+      color: #ccc;
+    }
+
+    #credits {
+      color: #2d2d2d;
+      font-size: 1.5em;
+      text-align: center;
+      margin-top: 15px;
+      font-style: italic;
+      letter-spacing: 0.5px;
+    }
+
+    .demo-box {
+      position: relative;
+    }
+
+    .code-overlay {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #f0f0f0;
+      padding: 6px 12px;
+      font-size: 1em;
+      font-style: italic;
+      border-radius: 5px;
+      pointer-events: none;
+      z-index: 10;
+      user-select: none;
+    }
+
+    .no-select {
+      user-select: none;
+    }
+  </style>
 </head>
 
 <body>
@@ -39,17 +90,54 @@
     <div class="overlay"></div>
     <div class="overlay-content">
       <h1 data-i18n="title">Portfolio</h1>
-      <p class="subtitulo" data-i18n="subtitle">Script en JS.</p>
+      <p class="subtitulo" data-i18n="subtitle">Script de Python.</p>
     </div>
+
   </header>
 
   <section class="container">
+    <p>Solo se muestra un trozo del código, ya que el mismo es muy extenso.</p>
     <div class="demo-box">
-      <iframe src="Scripts_JS/forte_pass/index.html" scrolling="no" style="height: 700px;"></iframe>
+      <div class="code-overlay" id="credits">By Lalita635</div>
+      <pre class="no-select"><code class="language-python">
+# Definición de constantes...
+# Definición de varias funciones para ejecutar el juego...
+
+def jugar_partida(modo, rondas):
+    puntos_jugador = 0
+    puntos_ia = 0
+
+    for ronda in range(1, rondas+1):
+        print(f"\n=== Ronda {ronda}/{rondas} ===")
+        jugador, ia = jugar_ronda(modo)
+        resultado = ganador(jugador, ia)
+
+        if resultado == "jugador":
+            print(f"🎉 Ganaste esta ronda ({jugador.capitalize()} vence a {ia.capitalize()})")
+            puntos_jugador += 1
+        elif resultado == "ia":
+            print(f"🤖 La IA gana esta ronda ({ia.capitalize()} vence a {jugador.capitalize()})")
+            puntos_ia += 1
+        else:
+            print("🤝 ¡Empate!")
+
+        print(f"📊 Marcador: Jugador {puntos_jugador} - {puntos_ia} IA")
+
+    print("\n=== RESULTADO FINAL ===")
+    if puntos_jugador > puntos_ia:
+        print("🏆 ¡Ganaste la partida!")
+    elif puntos_ia > puntos_jugador:
+        print("🤖 La IA gana la partida")
+    else:
+        print("🤝 ¡Partida empatada!")
+
+# Definición del menú...
+# Inicialización del script
+  </code></pre>
     </div>
 
     <div class="center-btn">
-      <a class="btn" href="https://github.com/user-attachments/files/22222996/Pass2.zip" download onclick="mostrarPassword(event)">
+      <a class="btn" href="https://github.com/user-attachments/files/22235111/Piedra_Papel_Tijera.zip" download onclick="mostrarPassword(event)">
         <i class="fas fa-file-arrow-down"></i>
         <span data-i18n="btn_download"> Obtener código</span>
       </a>
@@ -133,6 +221,11 @@
       });
     }
 
+    const setCredits = () => {
+      const creditsElement = document.getElementById('credits');
+      creditsElement.textContent = 'By Lalita635';
+    }
+
     // Modo oscuro
     const toggle = document.getElementById("darkToggle");
     const body = document.body;
@@ -155,16 +248,18 @@
 
     // Traducción
     document.addEventListener('DOMContentLoaded', () => {
+      setCredits();
+
       const DICT = {
         es: {
-          title: 'Portfolio - Generador de Contraseña Configurable',
-          subtitle: 'Este script permite al usuario seleccionar las características a incluir en la contraseña a generar. <br>También cuenta con manejo de errores y alertas.',
+          title: 'Portfolio - Piedra, Papel o Tijera',
+          subtitle: 'Este script implementa el clásico juego de Piedra, Papel o Tijera, con opción extendida para incluir Lagarto y Spock, usando lógica condicional y reglas predefinidas en un diccionario. <br>El programa corre en consola y permite elegir modo de juego, cantidad de rondas y visualizar las reglas.',
           btn_download: ' Obtener código',
           inicio: ' Inicio'
         },
         en: {
-          title: 'Portfolio - Configurable Password Generator',
-          subtitle: 'This script allows the user to select the characteristics to include in the generated password. <br>It also includes error handling and alerts.',
+          title: 'Portfolio - Rock, Paper, Scissors',
+          subtitle: 'This script implements the classic game of Rock, Paper, Scissors, with an extended option to include Lizard and Spock, using conditional logic and predefined rules in a dictionary. <br>The program runs on the console and allows you to choose the game mode, number of rounds, and view the rules.',
           btn_download: ' Get code',
           inicio: ' Home'
         }
