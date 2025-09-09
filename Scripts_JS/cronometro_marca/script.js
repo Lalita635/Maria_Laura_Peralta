@@ -18,6 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
 		elemento.style.display = "";
 	}
 
+	const setCredits = () => {
+		const creditsElement = document.getElementById('credits');
+		creditsElement.textContent = 'By Lalita635';
+	}
 	const agregarCeroSiEsNecesario = valor => {
 		if (valor < 10) {
 			return "0" + valor;
@@ -43,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		ocultarElemento($btnDetener);
 		mostrarElemento($btnMarca);
 		mostrarElemento($btnPausar);
+		setCredits();
 	};
 	const pausar = () => {
 		diferenciaTemporal = new Date() - tiempoInicio.getTime();

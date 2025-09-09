@@ -16,6 +16,11 @@ var lowercase = "abcdefghijklmnopqrstuvwxyz",
     userPassword,
     passwordCharSet;
 
+const setCredits = () => {
+		const creditsElement = document.getElementById('credits');
+		creditsElement.textContent = 'By Lalita635';
+	}
+
 function generate() {
     userPassword = "";
     passwordCharSet = "";
@@ -76,3 +81,5 @@ clipboard.on('error', function(e) {
         alertbox.classList.remove('fail');
     }, 3000);
 });
+
+setCredits();
