@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="title">Portfolio</title>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="example.css">
+
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <style>
+    .project-description {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: var(--bg-light, #f9f9f9);
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      color: var(--text-color, #333);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .project-description h3 {
+      margin-top: 0;
+      font-size: 20px;
+      color: var(--primary, #4a90e2);
+    }
+
+    .project-description ul {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    .project-description ul li {
+      margin-bottom: 10px;
+    }
+
+    .lang-note {
+      font-size: 0.95em;
+      background-color: #f0f8ff;
+      padding: 10px 15px;
+      border-left: 4px solid #4a90e2;
+      margin-top: 10px;
+      border-radius: 6px;
+      color: #333;
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Botones de idioma -->
+  <div class="lang-switch" aria-label="Language Switcher">
+    <button id="lang-es" type="button">ES</button>
+    <button id="lang-en" type="button">EN</button>
+  </div>
+
+  <!-- Modo oscuro -->
+  <div class="theme-toggle">
+    <button id="darkToggle"><i class="fas fa-moon"></i></button>
+  </div>
+
+  <header class="header">
+    <div class="overlay"></div>
+    <div class="overlay-content">
+      <h1 data-i18n="title">Portfolio</h1>
+      <p class="subtitulo" data-i18n="subtitle">Script de CD.</p>
+    </div>
+  </header>
+
+  <section class="container">
+
+    <div class="demo-box">
+      <h2>📊 Análisis de Ventas Simuladas</h2>
+      <p class="lang-note">
+        🌐 Este proyecto está disponible en <strong>Español</strong> e <strong>Inglés</strong> en su version
+        completa.<br />
+        <em>This project is available in its full version in <strong>Spanish</strong> and <strong>English</strong>.</em>
+      </p>
+
+      <p style="font-size: 1.1em; margin-top: 20px;">
+        Visualización interactiva de ingresos, gastos y ganancias mensuales en un negocio ficticio, utilizando gráficos
+        de líneas, barras y tortas.
+      </p>
+
+      <div class="project-description">
+        <h3>🧪 Descripción del Proyecto</h3>
+        <p>
+          Este proyecto simula la actividad financiera mensual de un negocio a lo largo de un año, generando datos
+          ficticios de ingresos y gastos para calcular ganancias.
+          Se aplicaron herramientas como <strong>Plotly Express</strong> y <strong>Plotly Graph Objects</strong> para
+          construir un dashboard interactivo y visualmente atractivo.
+        </p>
+      </div>
+
+      <h4 style="margin-top: 20px; color: #4a90e2;">📈 Evolución Mensual de Ingresos, Gastos y Ganancias</h4>
+      <iframe src="CD_Python/Sales_graf/ventas_lineas.html" scrolling="no" style="height: 400px;"
+        title="Gráfico de líneas de ingresos, gastos y ganancias"
+        aria-label="Gráfico interactivo de líneas que muestra evolución mensual">
+      </iframe>
+
+      <div class="project-description">
+        <p>
+          Este gráfico muestra cómo varían las tres métricas principales mes a mes. Las ganancias resultan de la
+          diferencia entre ingresos y gastos,
+          y se mantienen positivas durante todo el año, indicando una operación rentable.
+        </p>
+      </div>
+
+      <h4 style="margin-top: 30px; color: #4a90e2;">📊 Comparación Mensual por Categoría</h4>
+      <iframe src="CD_Python/Sales_graf/ventas_barras.html" scrolling="no" style="height: 400px;"
+        title="Gráfico de barras comparativo"
+        aria-label="Gráfico de barras que compara ingresos, gastos y ganancias por mes">
+      </iframe>
+
+      <div class="project-description">
+        <p>
+          La vista en barras permite comparar rápidamente qué meses tuvieron mejor rendimiento financiero y cuáles
+          implicaron mayores costos operativos.
+        </p>
+      </div>
+
+      <h4 style="margin-top: 30px; color: #4a90e2;">🍩 Distribución de Ingresos por Mes</h4>
+      <iframe src="CD_Python/Sales_graf/ventas_pie_ingresos.html" scrolling="no" style="height: 400px;"
+        title="Gráfico de torta de ingresos mensuales"
+        aria-label="Gráfico circular que muestra distribución mensual de ingresos">
+      </iframe>
+
+      <h4 style="margin-top: 30px; color: #4a90e2;">💸 Distribución de Gastos por Mes</h4>
+      <iframe src="CD_Python/Sales_graf/ventas_pie_gastos.html" scrolling="no" style="height: 400px;"
+        title="Gráfico de torta de gastos mensuales"
+        aria-label="Gráfico circular que muestra distribución mensual de gastos">
+      </iframe>
+
+      <div class="project-description">
+        <h3>📌 Conclusiones</h3>
+        <ul>
+          <li>📈 Los <strong>ingresos</strong> varían entre 15k y 30k, y los <strong>gastos</strong> entre 8k y 20k
+            mensuales.</li>
+          <li>✅ Las <strong>ganancias</strong> fueron siempre positivas, lo cual sugiere una operación sostenible.</li>
+          <li>📉 Los <strong>picos de ingresos</strong> no siempre coinciden con los <strong>meses de menor
+              gasto</strong>, lo que permite analizar eficiencia mensual.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="center-btn">
+      <a class="btn" href="https://github.com/user-attachments/files/22264439/Proy_Ventas.zip" download onclick="mostrarPassword(event)">
+        <i class="fas fa-file-arrow-down"></i>
+        <span data-i18n="btn_code"> Obtener código</span>
+      </a>
+
+    </div>
+
+    <div class="right-btns">
+      <a class="btn ghost" href="portfolio.html">
+        <i class="fas fa-folder-open"></i>
+        <span> Portfolio</span>
+      </a>
+
+      <a class="btn ghost" href="index.html">
+        <i class="fas fa-home"></i>
+        <span data-i18n="inicio"> Inicio</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>© <span id="year"></span> • María Laura Peralta</footer>
+
+  <script>
+    // Año dinámico
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    cards.forEach(card => observer.observe(card));
+
+    document.querySelectorAll('.btn[data-link]').forEach(btn => {
+      btn.addEventListener('click', function (e) {
+        const link = this.getAttribute('data-link');
+
+        if (link.startsWith('mailto:')) {
+          window.location.href = link;
+        } else if (link.startsWith('http')) {
+          // Enlaces externos -> nueva pestaña
+          window.open(link, '_blank');
+        } else {
+          // Subpáginas internas -> misma pestaña
+          window.location.href = link;
+        }
+      });
+    });
+
+    //Descarga
+    function mostrarPassword(event) {
+      event.preventDefault();
+
+      const url = event.currentTarget.href;
+
+      Swal.fire({
+        title: '🔐 Contraseña del ZIP:',
+        html: '<strong><h2>Lalita635</h2></strong>',
+        icon: 'warning',
+        confirmButtonText: 'Continuar 👉',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.open(url, '_blank');
+
+          Swal.fire({
+            icon: 'success',
+            title: '¡Gracias por descargar!',
+            text: 'Si te gustó podes ayudar: ',
+            showConfirmButton: true,
+            confirmButtonText: 'Colaborar 💡',
+            allowOutsideClick: true,
+          }).then((r) => {
+            if (r.isConfirmed) {
+              window.location.href = 'colabora.html';
+            }
+          });
+        }
+      });
+    }
+
+    // Modo oscuro
+    const toggle = document.getElementById("darkToggle");
+    const body = document.body;
+    if (localStorage.getItem("theme") === "dark") {
+      body.classList.add("dark");
+      toggle.innerHTML = '<i class="fas fa-sun"></i>';
+    } else {
+      toggle.innerHTML = '<i class="fas fa-moon"></i>';
+    }
+    toggle.addEventListener("click", () => {
+      body.classList.toggle("dark");
+      if (body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+        toggle.innerHTML = '<i class="fas fa-sun"></i>';
+      } else {
+        localStorage.setItem("theme", "light");
+        toggle.innerHTML = '<i class="fas fa-moon"></i>';
+      }
+    });
+
+    // Traducción
+    document.addEventListener('DOMContentLoaded', () => {
+      const DICT = {
+        es: {
+          title: 'Portfolio - Proyecto de Análisis de Ventas',
+          subtitle: 'Este proyecto simula los ingresos, gastos y ganancias mensuales de un negocio ficticio, utilizando visualizaciones interactivas con Plotly. <br>A través de gráficos de líneas, barras y tortas, se analiza la evolución y distribución financiera a lo largo del año.',
+          btn_code: ' Obtener código',
+          inicio: ' Inicio'
+        },
+        en: {
+          title: 'Portfolio - Sales Analysis Project',
+          subtitle: 'This project simulates the monthly income, expenses, and profits of a fictional business, using interactive visualizations with Plotly. <br>Through line, bar, and pie charts, it analyzes financial evolution and distribution throughout the year.',
+          btn_code: ' Get code',
+          inicio: ' Home'
+        }
+      };
+
+
+      function applyLang(lang) {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (DICT[lang] && DICT[lang][key]) el.innerHTML = DICT[lang][key];
+        });
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+          const key = el.getAttribute('data-i18n-placeholder');
+          if (DICT[lang] && DICT[lang][key]) el.setAttribute('placeholder', DICT[lang][key]);
+        });
+        document.getElementById('lang-es').classList.toggle('active', lang === 'es');
+        document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+        localStorage.setItem('lang', lang);
+      }
+
+      document.getElementById('lang-es').addEventListener('click', () => applyLang('es'));
+      document.getElementById('lang-en').addEventListener('click', () => applyLang('en'));
+
+      applyLang(localStorage.getItem('lang') || 'es');
+    });
+
+  </script>
+
+</body>
+
+</html>
