@@ -256,14 +256,24 @@
     <div class="panel">
       <div class="grid">
         <div class="card">
-          <h3>Análisis de CSV</h3>
-          <p data-i18n="csv_desc">Exploración de datos de un archivo CSV con pandas.</p>
-          <a class="btn" href="#" data-i18n="ver">Ver código</a>
+          <h3 data-i18n="iris"> Título</h3>
+          <p data-i18n="iris_desc"> Desc</p>
+          <a class="btn ghost" data-link="cd_iris.html">
+            <i class="fa fa-code" aria-hidden="true"></i> <span data-i18n="btn_ver_code"> Ver Código</span>
+          </a>
+          <a class="btn ghost" href="#" download onclick="mostrarPassword(event)">
+            <i class="fas fa-file-arrow-down"></i> <span data-i18n="btn_code"> Obtener código</span>
+          </a>
         </div>
         <div class="card">
-          <h3>Visualización de Datos</h3>
-          <p data-i18n="viz_desc">Gráficos con matplotlib y seaborn sobre dataset real.</p>
-          <a class="btn" href="#" data-i18n="ver">Ver código</a>
+          <h3 data-i18n="ttt"> Título</h3>
+          <p data-i18n="ttt_desc"> Desc</p>
+          <a class="btn ghost" data-link="s_py_ttt.html">
+            <i class="fa fa-code" aria-hidden="true"></i> <span data-i18n="btn_ver_code"> Ver Código</span>
+          </a>
+          <a class="btn ghost" href="#" download onclick="mostrarPassword(event)">
+            <i class="fas fa-file-arrow-down"></i> <span data-i18n="btn_code"> Obtener código</span>
+          </a>
         </div>
       </div>
     </div>
@@ -419,8 +429,8 @@
           ppt_desc: 'El clásico juego del piedra papel y tijera y su versión TBBT.',
           ttt: 'Ta Te Ti',
           ttt_desc: 'Elegí el nivel que preferas para este entretenido juego. Cuidado con el último nivel.',
-          csv_desc: 'Exploración de datos de un archivo CSV con pandas.',
-          viz_desc: 'Gráficos con matplotlib y seaborn sobre dataset real.',
+          iris: 'Proyecto de Visualización de datos tabulares',
+          iris_desc: 'Visualización interactiva del clásico dataset Iris con gráficos exploratorios y análisis de correlación multivariada.',
           ver: 'Ver',
           btn_example: 'Ejemplo',
           btn_ver_code: 'Ver Código',
@@ -469,8 +479,8 @@
           ppt_desc: 'The classic game of rock, paper, scissors and its TBBT version.',
           ttt: 'Tic Tac Toe',
           ttt_desc: 'Choose your preferred level for this fun game. Watch out for the last level.',
-          py_desc: 'This is an example to test PyScript usage.',
-          csv_desc: 'Exploration of a CSV file using pandas.',
+          iris: 'Tabular Data Visualization Project',
+          iris_desc: 'Interactive visualization of the classic Iris dataset with exploratory graphics and multivariate correlation analysis.',
           viz_desc: 'Graphs with matplotlib and seaborn over a real dataset.',
           ver: 'See',
           btn_example: 'Example',
