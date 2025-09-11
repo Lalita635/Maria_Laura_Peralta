@@ -320,14 +320,14 @@
     color: white;
   }
 
-  /* Contact form */
+  /* Form Sugerencias */
   .container {
     width: 100%;
     max-width: var(--maxw);
     margin: auto;
   }
 
-  #contact-form {
+  .forms {
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -335,8 +335,8 @@
     margin: 0 auto;
   }
 
-  #contact-form input,
-  #contact-form textarea {
+  .forms input,
+  .forms textarea {
     width: 100%;
     padding: 14px 5px;
     border: 1px solid #d1d5db;
@@ -346,13 +346,13 @@
     transition: all 0.2s ease;
   }
 
-  #contact-form input:focus,
-  #contact-form textarea:focus {
+  .forms input:focus,
+  .forms textarea:focus {
     border-color: #2563eb;
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
   }
 
-  #contact-form button {
+  .forms button {
     background: #2563eb;
     color: #fff;
     padding: 14px;
@@ -363,10 +363,11 @@
     transition: background 0.2s ease;
   }
 
-  #contact-form button:hover {
+  .forms button:hover {
     background: #1e40af;
   }
 
+  
   .dots {
     position: fixed;
     right: 18px;
@@ -397,3 +398,19 @@
     align-items: center;
     width: 100%;
   }
+
+  /* Archivo adjunto */
+  .file-upload {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.file-upload .btn.secondary {
+  cursor: pointer;
+}
+
+.file-upload span {
+  font-size: 0.9em;
+  color: #666;
+}

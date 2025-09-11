@@ -52,8 +52,9 @@
         <a class="btn ghost" data-link="cv_maria_laura_peralta.pdf" download><i class="fas fa-file-arrow-down"></i>
           <span data-i18n="btn_download">Descargar CV</span></a>
         <a class="btn ghost" data-link="https://www.linkedin.com/in/maria-laura-peralta/"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        <a class="btn ghost" data-link="https://wa.link/dq26ap"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-        <a class="btn ghost" data-link="#contacto"><i class="fas fa-envelope"></i> <span data-i18n="btn_contact"></a>
+        <!--a class="btn ghost" data-link="https://wa.link/dq26ap"><i class="fab fa-whatsapp"></i> WhatsApp</a-->
+        <a class="btn ghost" data-link="colabora.html"><i class="fas fa-envelope"></i> <span data-i18n="btn_contact">
+            Contacto</a>
       </div>
     </div>
   </section>
@@ -201,19 +202,6 @@
   <!-- Contacto -->
   <section id="contacto">
     <div class="container" style="max-width:700px">
-      <div class="card" style="text-align:center">
-        <h2 data-i18n="h_contact">Contacto</h2>
-        <p data-i18n="contact_pitch">¿Trabajamos juntos? Escribime:</p>
-        <form id="contact-form">
-          <input type="text" name="name" placeholder="Tu nombre" required data-i18n-placeholder="form_name_ph">
-          <input type="email" name="email" placeholder="Tu email" required data-i18n-placeholder="form_email_ph">
-          <textarea name="message" rows="4" placeholder="Tu mensaje" required
-            data-i18n-placeholder="form_message_ph"></textarea>
-          <button type="submit" class="btn primary" data-i18n="btn_send">
-            <i class="fas fa-paper-plane"></i> Enviar
-          </button>
-        </form>
-      </div>
       <footer>© <span id="year"></span> • María Laura Peralta</footer>
     </div>
   </section>
@@ -305,19 +293,6 @@ document.querySelectorAll('.btn[data-link]').forEach(btn => {
     }, { threshold: 0.3 });
     document.querySelectorAll('.skills').forEach(el => skillObserver.observe(el));
 
-    // Formulario de contacto: arma un mailto
-    const cf = document.getElementById('contact-form');
-    if (cf) {
-      cf.addEventListener('submit', function (e) {
-        e.preventDefault();
-        const name = this.name.value.trim();
-        const email = this.email.value.trim();
-        const message = this.message.value.trim();
-        const subject = encodeURIComponent('Contacto desde CV Web');
-        const body = encodeURIComponent(`Nombre: ${name}\nEmail: ${email}\n\n${message}`);
-        window.location.href = `mailto:lali.635@gmail.com?subject=${subject}&body=${body}`;
-      });
-    }
 
     // Diccionario ES/EN
     const DICT = {

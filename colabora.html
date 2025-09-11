@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -20,7 +19,7 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-    <!-- SweetAlert2 -->
+  <!-- SweetAlert2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
@@ -48,9 +47,10 @@
       <div class="btns">
         <a class="btn ghost" data-link="index.html"><i class="fas fa-home"></i> <span data-i18n="inicio">
             Inicio</span></a>
-        <a class="btn ghost" data-link="cv_maria_laura_peralta.pdf" download><i class="fas fa-file-arrow-down"></i>
-          <span data-i18n="btn_download"> Descargar CV</span></a>
-        <a class="btn ghost" data-link="https://www.linkedin.com/in/maria-laura-peralta/"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a class="btn ghost" data-link="portfolio.html"><i class="fas fa-folder-open"></i> <span>
+            Portfolio</span></a>
+        <a class="btn ghost" data-link="https://www.linkedin.com/in/maria-laura-peralta/"><i
+            class="fab fa-linkedin"></i> LinkedIn</a>
       </div>
     </div>
   </section>
@@ -58,66 +58,165 @@
   <!-- opciones -->
   <section class="container_section">
 
-    <!-- Cafecito -->
+    <!-- Donación -->
     <div class="accordion" id="donacion">
       <h2 data-i18n="donacion_title">Donación <i class="fas fa-chevron-right"></i></h2>
-      </div>
-      <div class="panel">
-        <div class="card">
-      <h3 style="text-align: center;" data-i18n="donacion_desc">Podes hacer tu donación para ayudarme a seguir desarrollando...<br></h3>
-      <div class="incrustado">
-      <iframe src="donaciones2.html" height="700" style="border:none;"></iframe>
-      </div>
+    </div>
+    <div class="panel">
+      <div class="card">
+        <h3 style="text-align: center;" data-i18n="donacion_desc">Podes hacer tu donación para ayudarme a seguir
+          desarrollando...<br></h3>
+        <div class="incrustado">
+          <iframe src="donaciones.html" height="450" width="500" style="border:none;"></iframe>
+        </div>
       </div>
     </div>
+
+
+    <!-- Ofertas Laborales -->
+    <div class="accordion" id="ofertas">
+      <h2 data-i18n="ofertas_title">Querés contratarme? <i class="fas fa-chevron-right"></i></h2>
+    </div>
+    <div class="panel">
+      <div class="card">
+        <section id="ofertas">
+          <div class="container" style="max-width:700px">
+            <div class="card visible" style="text-align:center">
+              <h3 data-i18n="ofertas">Sugerencias</h3>
+              <p data-i18n="ofertas_pitch">pitch </p>
+              <form class="forms" id="formOfertas">
+                <input type="text" name="name" placeholder="" required data-i18n-placeholder="form_name_ph">
+                <input type="email" name="email" placeholder="" required data-i18n-placeholder="form_email_ph">
+                <input type="text" name="empresa" placeholder="" required data-i18n-placeholder="form_emp_ph">
+                <textarea name="puesto" rows="4" placeholder="" required
+                  data-i18n-placeholder="form_oferta_ph"></textarea>
+                <p data-i18n="adjunto_desc">desc </p>
+                <div class="file-upload">
+                  <input type="file" id="archivoOferta" name="archivoAdjunto" hidden>
+                  <label for="archivoOferta" class="btn ghost" data-i18n="btn_select_file">Seleccionar archivo</label>
+                  <span id="fileNameOferta" data-i18n="no_file">Ningún archivo seleccionado</span>
+                </div>
+                <button type="submit" class="btn ghost" data-i18n="btn_send_oferta">
+                  <i class="fas fa-lightbulb"></i> Enviar
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+
 
     <!-- Nuevas Ideas -->
     <div class="accordion" id="ideas">
       <h2 data-i18n="ideas_title">Nuevas Ideas <i class="fas fa-chevron-right"></i></h2>
     </div>
-      <div class="panel">
-      <div class="grid">
-        <div class="card">
-      <p data-i18n="ideas_desc">Podes enviarme nuevas ideas para desarrollar...</p>
+    <div class="panel">
+      <div class="card">
+        <section id="sugerencias">
+          <div class="container" style="max-width:700px">
+            <div class="card visible" style="text-align:center">
+              <h3 data-i18n="sugerencias">Sugerencias</h3>
+              <p data-i18n="sugerencia_pitch">¿Tenés una idea? Compartila acá:</p>
+              <form class="forms" id="formIdeas">
+                <input type="text" name="name" placeholder="" required data-i18n-placeholder="form_name_ph">
+                <input type="email" name="email" placeholder="" required data-i18n-placeholder="form_email_ph">
+                <textarea name="idea" rows="4" placeholder="" required data-i18n-placeholder="form_idea_ph"></textarea>
+                <p data-i18n="adjunto_desc">desc </p>
+                <div class="file-upload">
+                  <input type="file" id="archivoIdea" name="archivoAdjunto" hidden>
+                  <label for="archivoIdea" class="btn ghost" data-i18n="btn_select_file">Seleccionar archivo</label>
+                  <span id="fileNameIdea" data-i18n="no_file">Ningún archivo seleccionado</span>
+                </div>
+                <button type="submit" class="btn ghost" data-i18n="btn_send_idea">
+                  <i class="fas fa-lightbulb"></i> Enviar Sugerencia
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
       </div>
-      </div>
-    </div>      
-    
+    </div>
+
+
 
     <!-- Problemas con una descarga -->
     <div class="accordion" id="soporte">
       <h2 data-i18n="problemas_title">Problemas con una descarga <i class="fas fa-chevron-right"></i></h2>
     </div>
-      <div class="panel">
-      <div class="grid">
-        <div class="card">
-      <p data-i18n="problemas_desc">Si tuviste algún problema con un código descargado, completá este formulario...</p>
+    <div class="panel">
+      <div class="card">
+        <section id="soporte">
+          <div class="container" style="max-width:700px">
+            <div class="card visible" style="text-align:center">
+              <h3 data-i18n="soporte">Soporte</h3>
+              <p data-i18n="soporte_pitch">desc</p>
+              <form class="forms" id="formSoporte">
+                <input type="text" name="name" placeholder="" required data-i18n-placeholder="form_name_ph">
+                <input type="email" name="email" placeholder="" required data-i18n-placeholder="form_email_ph">
+                <input type="text" name="archivo" placeholder="" required data-i18n-placeholder="form_archivo_ph">
+                <textarea name="descripcion" rows="4" placeholder="" required
+                  data-i18n-placeholder="form_soporte_ph"></textarea>
+                <p data-i18n="adjunto_desc">desc </p>
+                <div class="file-upload">
+                  <input type="file" id="archivoSoporte" name="archivoAdjunto" hidden>
+                  <label for="archivoSoporte" class="btn ghost" data-i18n="btn_select_file">Seleccionar archivo</label>
+                  <span id="fileNameSoporte" data-i18n="no_file">Ningún archivo seleccionado</span>
+                </div>
+                <button type="submit" class="btn ghost" data-i18n="btn_soporte">
+                  <i class="fas fa-tools"></i> Pedir Soporte
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
       </div>
-      </div>
-    </div> 
-    
+    </div>
+
+
 
     <!-- Sacar el copy -->
-    <div class="accordion" id="copy">
-      <h2 data-i18n="copy_title">Sacar el Copy <i class="fas fa-chevron-right"></i></h2>
+    <div class="accordion" id="creditos">
+      <h2 data-i18n="creditos_title">Necesitas el código sin los créditos? <i class="fas fa-chevron-right"></i></h2>
     </div>
-      <div class="panel">
-      <div class="grid">
-        <div class="card">
-      <p data-i18n="copy_desc">Si necesitas usar mi código sin el copy, completá este formulario...</p>
-      </div>
+    <div class="panel">
+      <div class="card">
+        <section id="soporte">
+          <div class="container" style="max-width:700px">
+            <div class="card visible" style="text-align:center">
+              <h3 data-i18n="creditos">Créditos del autor</h3>
+              <p data-i18n="creditos_desc">desc</p>
+              <form class="forms" id="formCopy">
+                <input type="text" name="name" placeholder="" required data-i18n-placeholder="form_name_ph">
+                <input type="email" name="email" placeholder="" required data-i18n-placeholder="form_email_ph">
+                <input type="text" name="archivo" placeholder="" required data-i18n-placeholder="form_archivo_ph">
+                <textarea name="razon" rows="4" placeholder="" required data-i18n-placeholder="form_copy_ph"></textarea>
+                <p data-i18n="adjunto_desc">desc </p>
+                <div class="file-upload">
+                  <input type="file" id="archivoCopy" name="archivoAdjunto" hidden>
+                  <label for="archivoCopy" class="btn ghost" data-i18n="btn_select_file">Seleccionar archivo</label>
+                  <span id="fileNameCopy" data-i18n="no_file">Ningún archivo seleccionado</span>
+                </div>
+                <button type="submit" class="btn ghost" data-i18n="btn_copy">
+                  <i class="fas fa-eraser"></i> Solicitar
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
-    
+
 
   </section>
 
   <!-- Footer -->
-  <section id="contacto">
-    <div class="container" style="max-width:700px">
-      <footer>© <span id="year"></span> • María Laura Peralta</footer>
-    </div>
-  </section>
+
+  <div class="container" style="max-width:700px;">
+    <footer>© <span id="year"></span> • María Laura Peralta</footer>
+  </div>
+
 
   <script>
     // Año dinámico
@@ -135,20 +234,20 @@
     cards.forEach(card => observer.observe(card));
 
     document.querySelectorAll('.btn[data-link]').forEach(btn => {
-  btn.addEventListener('click', function (e) {
-    const link = this.getAttribute('data-link');
+      btn.addEventListener('click', function (e) {
+        const link = this.getAttribute('data-link');
 
-    if (link.startsWith('mailto:')) {
-      window.location.href = link;
-    } else if (link.startsWith('http')) {
-      // Enlaces externos -> nueva pestaña
-      window.open(link, '_blank');
-    } else {
-      // Subpáginas internas -> misma pestaña
-      window.location.href = link;
-    }
-  });
-});
+        if (link.startsWith('mailto:')) {
+          window.location.href = link;
+        } else if (link.startsWith('http')) {
+          // Enlaces externos -> nueva pestaña
+          window.open(link, '_blank');
+        } else {
+          // Subpáginas internas -> misma pestaña
+          window.location.href = link;
+        }
+      });
+    });
 
     // Acordeón funcional
     document.querySelectorAll(".accordion").forEach(acc => {
@@ -158,6 +257,192 @@
         panel.style.display = panel.style.display === "block" ? "none" : "block";
       });
     });
+
+    // Forms
+    const apiKey = "e51a245e39009cf514fe2d47699ef62f";
+    const token = "ATTA30899b272a5b8c599ce50c9298ac0c66dd76103355314a06ac515058ef7631790B576B74";
+
+    const listIdIdeas = "68c20a290682ac83f1c20029";
+    const listIdSoporte = "68c20aa23737e35c8fe8583e";
+    const listIdCopy = "68c20af6f8bdeab643fe7481";
+    const listOfertas = "68c32a424aca32b49d2f9e15";
+
+
+    // === FUNCIÓN ENVIAR A TRELLO ===
+    async function enviarATrello(listId, titulo, descripcion) {
+      const url = `https://api.trello.com/1/cards?idList=${listId}&key=${apiKey}&token=${token}&name=${encodeURIComponent(titulo)}&desc=${encodeURIComponent(descripcion)}`;
+
+      try {
+        const resp = await fetch(url, { method: "POST" });
+        if (!resp.ok) throw new Error("Error al crear tarjeta");
+        const data = await resp.json();
+        return data.id; // devolvemos idCard
+      } catch (err) {
+        console.error(err);
+        return null;
+      }
+    }
+
+    // === FUNCIÓN ADJUNTAR ARCHIVO ===
+    async function adjuntarArchivo(idCard, file) {
+      const url = `https://api.trello.com/1/cards/${idCard}/attachments?key=${apiKey}&token=${token}`;
+      const formData = new FormData();
+      formData.append("file", file);
+
+      try {
+        const resp = await fetch(url, {
+          method: "POST",
+          body: formData
+        });
+        if (!resp.ok) throw new Error("Error al subir archivo");
+        return true;
+      } catch (err) {
+        console.error(err);
+        return false;
+      }
+    }
+
+    // Traducción archivo adjunto 
+    document.querySelectorAll('input[type="file"]').forEach(input => {
+      input.addEventListener("change", e => {
+        const fileName = e.target.files[0]?.name || DICT[localStorage.getItem("lang") || "es"].no_file;
+        const span = e.target.parentElement.querySelector("span");
+        span.textContent = fileName;
+      });
+    });
+
+    // === FORMULARIO CONTRATACIÓN ===
+    document.getElementById("formOfertas").addEventListener("submit", async e => {
+      e.preventDefault();
+
+      const nombre = e.target.elements["name"].value;
+      const email = e.target.elements["email"].value;
+      const empresa = e.target.elements["empresa"].value;
+      const descripcion_puesto = e.target.elements["puesto"].value;
+      const archivo = e.target.elements["archivoAdjunto"].files[0];
+
+      const titulo = `${nombre} quiere contratarte!`;
+      const desc = `Empresa: ${empresa}\n 📧 Email: ${email}\n Para: ${descripcion_puesto}`;
+
+      const idCard = await enviarATrello(listOfertas, titulo, desc);
+
+      if (idCard) {
+        if (archivo) await adjuntarArchivo(idCard, archivo);
+
+        Swal.fire({
+          icon: "success",
+          text: DICT[localStorage.getItem("lang") || "es"].popup_success_idea,
+          confirmButtonText: DICT[localStorage.getItem("lang") || "es"].btn_close
+        });
+        e.target.reset();
+      } else {
+        Swal.fire({
+          icon: "error",
+          text: DICT[localStorage.getItem("lang") || "es"].popup_error,
+          confirmButtonText: DICT[localStorage.getItem("lang") || "es"].btn_close
+        });
+      }
+    });
+
+    // === FORMULARIO IDEAS ===
+    document.getElementById("formIdeas").addEventListener("submit", async e => {
+      e.preventDefault();
+
+      const nombre = e.target.elements["name"].value;
+      const email = e.target.elements["email"].value;
+      const idea = e.target.elements["idea"].value;
+      const archivo = e.target.elements["archivoAdjunto"].files[0];
+
+      const titulo = `Idea de ${nombre}`;
+      const desc = `📧 Email: ${email}\n💡 Idea: ${idea}`;
+
+      const idCard = await enviarATrello(listIdIdeas, titulo, desc);
+
+      if (idCard) {
+        if (archivo) await adjuntarArchivo(idCard, archivo);
+
+        Swal.fire({
+          icon: "success",
+          text: DICT[localStorage.getItem("lang") || "es"].popup_success_oferta,
+          confirmButtonText: DICT[localStorage.getItem("lang") || "es"].btn_close
+        });
+        e.target.reset();
+      } else {
+        Swal.fire({
+          icon: "error",
+          text: DICT[localStorage.getItem("lang") || "es"].popup_error,
+          confirmButtonText: DICT[localStorage.getItem("lang") || "es"].btn_close
+        });
+      }
+    });
+
+    // === FORMULARIO SOPORTE ===
+    document.getElementById("formSoporte").addEventListener("submit", async e => {
+      e.preventDefault();
+
+      const nombre = e.target.elements["name"].value;
+      const email = e.target.elements["email"].value;
+      const archivoNombre = e.target.elements["archivo"].value;
+      const descripcion = e.target.elements["descripcion"].value;
+      const archivo = e.target.elements["archivoAdjunto"].files[0];
+
+      const titulo = `Pedido de soporte de ${nombre}`;
+      const desc = `📧 Email: ${email}\n Archivo: ${archivoNombre}\n Descripción: ${descripcion}`;
+
+      const idCard = await enviarATrello(listIdSoporte, titulo, desc);
+
+      if (idCard) {
+        if (archivo) await adjuntarArchivo(idCard, archivo);
+
+        Swal.fire({
+          icon: "success",
+          text: DICT[localStorage.getItem("lang") || "es"].popup_success_soporte,
+          confirmButtonText: DICT[localStorage.getItem("lang") || "es"].btn_close
+        });
+        e.target.reset();
+      } else {
+        Swal.fire({
+          icon: "error",
+          text: DICT[localStorage.getItem("lang") || "es"].popup_error,
+          confirmButtonText: DICT[localStorage.getItem("lang") || "es"].btn_close
+        });
+      }
+    });
+
+    // === FORMULARIO COPY ===
+    document.getElementById("formCopy").addEventListener("submit", async e => {
+      e.preventDefault();
+
+      const nombre = e.target.elements["name"].value;
+      const email = e.target.elements["email"].value;
+      const archivoNombre = e.target.elements["archivo"].value;
+      const motivo = e.target.elements["razon"].value;
+      const archivo = e.target.elements["archivoAdjunto"].files[0];
+
+      const titulo = `Pedido para sacar créditos de ${nombre}`;
+      const desc = `📧 Email: ${email}\n Archivo: ${archivoNombre}\n Motivo: ${motivo}`;
+
+      const idCard = await enviarATrello(listIdCopy, titulo, desc);
+
+      if (idCard) {
+        if (archivo) await adjuntarArchivo(idCard, archivo);
+
+        Swal.fire({
+          icon: "success",
+          text: DICT[localStorage.getItem("lang") || "es"].popup_success_copy,
+          confirmButtonText: DICT[localStorage.getItem("lang") || "es"].btn_close
+        });
+        e.target.reset();
+      } else {
+        Swal.fire({
+          icon: "error",
+          text: DICT[localStorage.getItem("lang") || "es"].popup_error,
+          confirmButtonText: DICT[localStorage.getItem("lang") || "es"].btn_close
+        });
+      }
+    });
+
+
 
     // Modo oscuro
     const toggle = document.getElementById("darkToggle");
@@ -181,36 +466,93 @@
 
     // Traducción
     document.addEventListener('DOMContentLoaded', () => {
-      const DICT = {
-      es: {
-        subtitle: 'Esta sección reúne diferentes maneras de colaborar.',
-        inicio: 'Inicio',
-        btn_download: 'Descargar CV',
-        btn_send: 'Enviar',
-        donacion_title: 'Donación',
-        donacion_desc: 'Podes hacer una donación para ayudarme a seguir desarrollando...',
-        ideas_title: 'Tenes una idea?',
-        ideas_desc: 'Podes enviarme nuevas ideas para desarrollar...',
-        problemas_title: 'Problemas con una descarga',
-        problemas_desc: 'Si tuviste algún problema con un código descargado, completá este formulario...',
-        copy_title: 'Sacar el Copy',
-        copy_desc: 'Si necesitas usar mi código sin el copy, completá este formulario...'
-      },
-      en: {
-        subtitle: 'This section shows different ways to collaborate.',
-        inicio: 'Home',
-        btn_download: 'Download CV',
-        btn_send: 'Send',
-        donacion_title: 'Donation',
-        donacion_desc: 'You can make a donation to help me continue developing...',
-        ideas_title: 'Do you have an idea?',
-        ideas_desc: 'You can send me new ideas to develop...',
-        problemas_title: 'Download issues',
-        problemas_desc: 'If you had a problem with a downloaded code, fill out this form...',
-        copy_title: 'Remove Copy',
-        copy_desc: 'If you need to use my code without the copy, fill out this form...'
-      }
-    };
+
+      window.DICT = {
+        es: {
+          subtitle: 'Esta sección reúne diferentes maneras de colaborar.',
+          inicio: 'Inicio',
+          btn_download: 'Descargar CV',
+          btn_send: 'Enviar',
+          donacion_title: 'Donación',
+          donacion_desc: 'Podes hacer una donación para ayudarme a seguir desarrollando...',
+          form_name_ph: 'Tu nombre',
+          form_email_ph: 'Tu email',
+          ideas_title: 'Tenes una idea?',
+          sugerencia: 'Sugerencias',
+          sugerencia_pitch: 'Comparti acá tu idea:',
+          form_idea_ph: 'Describe detalladamente la idea',
+          btn_send_idea: 'Enviar Idea',
+          problemas_title: 'Problemas con una descarga',
+          soporte: 'Soporte',
+          soporte_pitch: 'Si tuviste algún problema con un código descargado, completá este formulario para obtener ayuda',
+          form_soporte_ph: 'Descripción del incidente o duda',
+          btn_soporte: 'Pedir Soporte',
+          creditos_title: 'Necesitas el código sin los créditos?',
+          creditos: 'Sacar los créditos del autor',
+          creditos_desc: 'Si necesitas usar mi código sin los créditos, completá el formulario a continuación:',
+          form_archivo_ph: 'Nombre del archivo descargado',
+          form_copy_ph: 'Razón por la que deseás sacar los créditos del autor',
+          btn_copy: 'Solicitar',
+          popup_success_oferta: '✅ Mensaje enviado, en breve te responderé al mail indicado',
+          popup_success_idea: "✅ Tu idea fue enviada, gracias!",
+          popup_success_soporte: "✅ Tu pedido fue enviado, te responderé en breve!",
+          popup_success_copy: "✅ Tu solicitud fue enviada, te responderé al mail indicado.",
+          popup_error: "❌ Hubo un error, recarga la página e intenta de nuevo.",
+          btn_close: "Cerrar",
+          btn_select_file: "Seleccionar archivo",
+          no_file: "Ningún archivo seleccionado",
+          adjunto_desc: 'También podes adjuntar un archivo a continuación:',
+          ofertas_title: 'Trabajamos juntos?',
+          ofertas: 'Contrataciones',
+          ofertas_pitch: 'Si deseas contratar mis servicios completá el siguiente formulario:',
+          form_emp_ph: 'Empresa',
+          form_oferta_ph: 'Describí lo que necesitas',
+          btn_send_oferta: 'Enviar'
+        },
+        en: {
+          subtitle: 'This section shows different ways to collaborate.',
+          inicio: 'Home',
+          btn_download: 'Download CV',
+          btn_send: 'Send',
+          donacion_title: 'Donation',
+          donacion_desc: 'You can make a donation to help me continue developing...',
+          form_name_ph: 'Your name',
+          form_email_ph: 'Your email',
+          ideas_title: 'Do you have an idea?',
+          sugerencia: 'Sugerencias',
+          sugerencia_pitch: 'Share your idea here:',
+          form_idea_ph: 'Describe the idea in detail',
+          btn_send_idea: 'Send Idea',
+          problemas_title: 'Problems with a download',
+          soporte: 'Technical Support',
+          soporte_pitch: 'If you had any problems with a downloaded code, please fill out this form for help.',
+          form_soporte_ph: 'Description of the incident or question',
+          btn_soporte: 'Request Technical Support',
+          creditos_title: 'Do you need the code without the credits?',
+          creditos: "Remove the author's credits",
+          creditos_desc: 'If you need to use my code without the credits, please fill out the form below:',
+          form_archivo_ph: 'Name of the downloaded file',
+          form_copy_ph: 'Reason why you want to remove the author credits',
+          btn_copy: 'Request',
+          popup_success_oferta: '✅ Message sent, I will reply to the email address provided shortly.',
+          popup_success_idea: "✅ Your idea has been sent, thank you!",
+          popup_success_soporte: "✅ Your support request has been sent, I will reply shortly!",
+          popup_success_copy: "✅ Your request has been sent, I will reply to the indicated email.",
+          popup_error: "❌ There was an error, reload the page and try again.",
+          btn_close: "Close",
+          btn_select_file: "Select file",
+          no_file: "No file selected",
+          adjunto_desc: 'You can also attach a file below:',
+          ofertas_title: 'Shall we work together?',
+          ofertas: 'Hiring',
+          ofertas_pitch: 'If you wish to hire my services, please complete the following form:',
+          form_emp_ph: 'Company',
+          form_oferta_ph: 'Describe what you need',
+          btn_send_oferta: 'Send'
+        }
+      };
+
+      const DICT = window.DICT;
 
       function applyLang(lang) {
         document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -231,6 +573,7 @@
 
       applyLang(localStorage.getItem('lang') || 'es');
     });
+
 
     // Formulario 
     document.addEventListener('DOMContentLoaded', () => {
