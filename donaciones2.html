@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Donaciones</title>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      text-align: center; 
+      margin: 0; 
+      padding: 20px; 
+      background: #f9f9f9;
+    }
+    h2 { color: #333; margin-bottom: 10px; }
+    form { margin: 15px 0; }
+    input, button { 
+      padding: 10px; 
+      margin: 5px; 
+      border-radius: 8px; 
+      border: 1px solid #ccc; 
+    }
+    button { 
+      background: #4CAF50; 
+      color: white; 
+      border: none; 
+      cursor: pointer; 
+      transition: background 0.2s ease-in-out;
+    }
+    button:hover { background: #45a049; }
+    #qrcode { margin: 20px auto; }
+    #mensaje { 
+      font-size: 18px; 
+      color: #4CAF50; 
+      font-weight: bold; 
+      margin-top: 15px; 
+      display: none; 
+    }
+    #aliasBox { margin-top: 15px; display:none; }
+    #copiarBtn { 
+      background: #008CBA; 
+      margin-top: 8px; 
+    }
+    #copiarBtn:hover { background: #007bb5; }
+
+    /* Estilo del pop-up */
+    #popup {
+      visibility: hidden;
+      min-width: 220px;
+      background: #4CAF50;
+      color: white;
+      text-align: center;
+      border-radius: 8px;
+      padding: 12px;
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      opacity: 0;
+      transition: opacity 0.4s ease, bottom 0.4s ease;
+    }
+    #popup.show {
+      visibility: visible;
+      opacity: 1;
+      bottom: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Donar con QR Interoperable</h2>
+
+  <form id="donacionForm">
+    <label>Monto a donar ($): </label>
+    <input type="number" id="monto" required min="1">
+    <button type="submit">Generar QR</button>
+  </form>
+
+  <div id="qrcode"></div>
+  <p id="mensaje">Gracias por tu apoyo 💚</p>
+
+  <div id="aliasBox">
+    <button id="copiarBtn">Copiar Alias</button>
+  </div>
+
+  <!-- Pop-up -->
+  <div id="popup">Alias copiado al portapapeles ✅</div>
+
+  <script>
+    const alias = "mi.alias.banco"; // 👉 tu alias real aquí
+
+    // CRC16-CCITT requerido por estándar EMVco
+    function crc16ccitt(str) {
+      let crc = 0xFFFF;
+      for (let i = 0; i < str.length; i++) {
+        crc ^= str.charCodeAt(i) << 8;
+        for (let j = 0; j < 8; j++) {
+          if ((crc & 0x8000) !== 0) {
+            crc = (crc << 1) ^ 0x1021;
+          } else {
+            crc <<= 1;
+          }
+          crc &= 0xFFFF;
+        }
+      }
+      return crc.toString(16).toUpperCase().padStart(4, "0");
+    }
+
+    document.getElementById("donacionForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const monto = document.getElementById("monto").value;
+
+      // Construcción del payload EMVco con alias
+      let payload = "000201"; // Payload format indicator
+      payload += "010212";    // Point of initiation method
+      const aliasField = `0012${alias}`;
+      payload += `2632${aliasField.length.toString().padStart(2,"0")}${aliasField}`;
+      payload += "5303032";   // Moneda ARS
+      payload += `54${monto.length.toString().padStart(2,"0")}${monto}`;
+      payload += "5802AR";    // País
+
+      // Calcular CRC
+      let payloadCRC = payload + "6304";
+      const crc = crc16ccitt(payloadCRC);
+      payloadCRC += crc;
+
+      // Generar QR
+      document.getElementById("qrcode").innerHTML = "";
+      new QRCode(document.getElementById("qrcode"), {
+        text: payloadCRC,
+        width: 250,
+        height: 250
+      });
+
+      // Mostrar mensaje de agradecimiento y botón copiar
+      document.getElementById("mensaje").style.display = "block";
+      document.getElementById("aliasBox").style.display = "block";
+    });
+
+    // Función para copiar alias y mostrar pop-up
+    document.getElementById("copiarBtn").addEventListener("click", function() {
+      navigator.clipboard.writeText(alias).then(() => {
+        const popup = document.getElementById("popup");
+        popup.classList.add("show");
+        setTimeout(() => {
+          popup.classList.remove("show");
+        }, 3000);
+      });
+    });
+  </script>
+</body>
+</html>
