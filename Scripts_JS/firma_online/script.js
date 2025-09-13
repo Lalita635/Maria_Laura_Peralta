@@ -24,11 +24,43 @@ const limpiarCanvas = () => {
 limpiarCanvas();
 $btnLimpiar.onclick = limpiarCanvas;
 $btnDescargar.onclick = () => {
+    const canvasConMarca = document.createElement('canvas');
+    canvasConMarca.width = $canvas.width;
+    canvasConMarca.height = $canvas.height;
+    const ctxMarca = canvasConMarca.getContext('2d');
+
+    ctxMarca.drawImage($canvas, 0, 0);
+
+    
+    ctxMarca.save();
+    ctxMarca.translate(canvasConMarca.width / 2, canvasConMarca.height / 2);
+    ctxMarca.rotate(-Math.atan(canvasConMarca.height / canvasConMarca.width));
+    ctxMarca.font = "50px Arial";
+    ctxMarca.fillStyle = "rgba(0, 0, 0, 0.1)";
+    ctxMarca.textAlign = "center";
+    ctxMarca.textBaseline = "middle";
+    ctxMarca.fillText("EJEMPLO", 0, 0);
+    ctxMarca.restore();
+
+
+    const textoLinea1 = "Para obtener el código sin la marca";
+    const textoLinea2 = "de agua ingresa a: 🔒 http://bit.ly/4fS0yUa";
+
+
+    ctxMarca.font = "bold 12px sans-serif";
+    ctxMarca.fillStyle = "rgba(0, 0, 0, 0.7)";
+    ctxMarca.textAlign = "center";
+    ctxMarca.textBaseline = "bottom";
+
+    ctxMarca.fillText(textoLinea1, canvasConMarca.width / 2, canvasConMarca.height - 28);
+    ctxMarca.fillText(textoLinea2, canvasConMarca.width / 2, canvasConMarca.height - 15);
+
     const enlace = document.createElement('a');
     enlace.download = "Firma.png";
-    enlace.href = $canvas.toDataURL();
+    enlace.href = canvasConMarca.toDataURL();
     enlace.click();
 };
+
 
 window.obtenerImagen = () => {
     return $canvas.toDataURL();
@@ -76,7 +108,6 @@ $canvas.addEventListener("mousemove", (evento) => {
 
 setCredits();
 
-// Soporte para pantallas táctiles
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 let drawing = false;
