@@ -81,9 +81,9 @@
       <div class="card">
         <section id="ofertas">
           <div class="container" style="max-width:700px">
+            <h3 data-i18n="ofertas_pitch">Ofertas</h3>
+            <br>
             <div class="card visible" style="text-align:center">
-              <h3 data-i18n="ofertas">Sugerencias</h3>
-              <p data-i18n="ofertas_pitch">pitch </p>
               <form class="forms" id="formOfertas">
                 <input type="text" name="name" placeholder="" required data-i18n-placeholder="form_name_ph">
                 <input type="email" name="email" placeholder="" required data-i18n-placeholder="form_email_ph">
@@ -96,7 +96,7 @@
                   <label for="archivoOferta" class="btn ghost" data-i18n="btn_select_file">Seleccionar archivo</label>
                   <span id="fileNameOferta" data-i18n="no_file">Ningún archivo seleccionado</span>
                 </div>
-                <button type="submit" class="btn ghost" data-i18n="btn_send_oferta">
+                <button type="submit" class="btn" data-i18n="btn_send_oferta">
                   <i class="fas fa-lightbulb"></i> Enviar
                 </button>
               </form>
@@ -116,9 +116,9 @@
       <div class="card">
         <section id="sugerencias">
           <div class="container" style="max-width:700px">
+            <h3 data-i18n="sugerencia_pitch" style="text-align:center">Sugerencias</h3>
+            <br>
             <div class="card visible" style="text-align:center">
-              <h3 data-i18n="sugerencias">Sugerencias</h3>
-              <p data-i18n="sugerencia_pitch">¿Tenés una idea? Compartila acá:</p>
               <form class="forms" id="formIdeas">
                 <input type="text" name="name" placeholder="" required data-i18n-placeholder="form_name_ph">
                 <input type="email" name="email" placeholder="" required data-i18n-placeholder="form_email_ph">
@@ -129,7 +129,7 @@
                   <label for="archivoIdea" class="btn ghost" data-i18n="btn_select_file">Seleccionar archivo</label>
                   <span id="fileNameIdea" data-i18n="no_file">Ningún archivo seleccionado</span>
                 </div>
-                <button type="submit" class="btn ghost" data-i18n="btn_send_idea">
+                <button type="submit" class="btn" data-i18n="btn_send_idea">
                   <i class="fas fa-lightbulb"></i> Enviar Sugerencia
                 </button>
               </form>
@@ -149,9 +149,9 @@
       <div class="card">
         <section id="soporte">
           <div class="container" style="max-width:700px">
+            <h3 data-i18n="soporte_pitch" style="text-align:center">Soporte</h3>
+            <br>
             <div class="card visible" style="text-align:center">
-              <h3 data-i18n="soporte">Soporte</h3>
-              <p data-i18n="soporte_pitch">desc</p>
               <form class="forms" id="formSoporte">
                 <input type="text" name="name" placeholder="" required data-i18n-placeholder="form_name_ph">
                 <input type="email" name="email" placeholder="" required data-i18n-placeholder="form_email_ph">
@@ -164,7 +164,7 @@
                   <label for="archivoSoporte" class="btn ghost" data-i18n="btn_select_file">Seleccionar archivo</label>
                   <span id="fileNameSoporte" data-i18n="no_file">Ningún archivo seleccionado</span>
                 </div>
-                <button type="submit" class="btn ghost" data-i18n="btn_soporte">
+                <button type="submit" class="btn" data-i18n="btn_soporte">
                   <i class="fas fa-tools"></i> Pedir Soporte
                 </button>
               </form>
@@ -184,9 +184,9 @@
       <div class="card">
         <section id="soporte">
           <div class="container" style="max-width:700px">
+            <h3 data-i18n="creditos_desc" style="text-align:center">Créditos del autor</h3>
+            <br>
             <div class="card visible" style="text-align:center">
-              <h3 data-i18n="creditos">Créditos del autor</h3>
-              <p data-i18n="creditos_desc">desc</p>
               <form class="forms" id="formCopy">
                 <input type="text" name="name" placeholder="" required data-i18n-placeholder="form_name_ph">
                 <input type="email" name="email" placeholder="" required data-i18n-placeholder="form_email_ph">
@@ -198,7 +198,7 @@
                   <label for="archivoCopy" class="btn ghost" data-i18n="btn_select_file">Seleccionar archivo</label>
                   <span id="fileNameCopy" data-i18n="no_file">Ningún archivo seleccionado</span>
                 </div>
-                <button type="submit" class="btn ghost" data-i18n="btn_copy">
+                <button type="submit" class="btn" data-i18n="btn_copy">
                   <i class="fas fa-eraser"></i> Solicitar
                 </button>
               </form>
@@ -469,7 +469,7 @@
 
       window.DICT = {
         es: {
-          subtitle: 'Esta sección reúne diferentes maneras de colaborar.',
+          subtitle: 'Descubrí todas las formas en las que podés apoyar y ser parte de este proyecto. Tu colaboración impulsa nuevas ideas, proyectos y aprendizajes.',
           inicio: 'Inicio',
           btn_download: 'Descargar CV',
           btn_send: 'Enviar',
@@ -479,15 +479,15 @@
           form_email_ph: 'Tu email',
           ideas_title: 'Tenes una idea?',
           sugerencia: 'Sugerencias',
-          sugerencia_pitch: 'Comparti acá tu idea:',
-          form_idea_ph: 'Describe detalladamente la idea',
+          sugerencia_pitch: 'Deja acá tu idea para que pronto la desarrolle:',
+          form_idea_ph: 'Describí detalladamente la idea',
           btn_send_idea: 'Enviar Idea',
           problemas_title: 'Problemas con una descarga',
           soporte: 'Soporte',
-          soporte_pitch: 'Si tuviste algún problema con un código descargado, completá este formulario para obtener ayuda',
+          soporte_pitch: 'Si tuviste algún problema o duda con un código descargado completá este formulario para obtener ayuda:',
           form_soporte_ph: 'Descripción del incidente o duda',
           btn_soporte: 'Pedir Soporte',
-          creditos_title: 'Necesitas el código sin los créditos?',
+          creditos_title: 'Necesitas el código sin los créditos del autor?',
           creditos: 'Sacar los créditos del autor',
           creditos_desc: 'Si necesitas usar mi código sin los créditos, completá el formulario a continuación:',
           form_archivo_ph: 'Nombre del archivo descargado',
@@ -506,11 +506,11 @@
           ofertas: 'Contrataciones',
           ofertas_pitch: 'Si deseas contratar mis servicios completá el siguiente formulario:',
           form_emp_ph: 'Empresa',
-          form_oferta_ph: 'Describí lo que necesitas',
+          form_oferta_ph: 'Describí la propuesta',
           btn_send_oferta: 'Enviar'
         },
         en: {
-          subtitle: 'This section shows different ways to collaborate.',
+          subtitle: 'Discover all the ways you can support and be part of this project. Your collaboration fosters new ideas, projects, and learning.',
           inicio: 'Home',
           btn_download: 'Download CV',
           btn_send: 'Send',
@@ -520,15 +520,15 @@
           form_email_ph: 'Your email',
           ideas_title: 'Do you have an idea?',
           sugerencia: 'Sugerencias',
-          sugerencia_pitch: 'Share your idea here:',
+          sugerencia_pitch: 'Leave your idea here so I can develop it soon:',
           form_idea_ph: 'Describe the idea in detail',
           btn_send_idea: 'Send Idea',
           problemas_title: 'Problems with a download',
           soporte: 'Technical Support',
-          soporte_pitch: 'If you had any problems with a downloaded code, please fill out this form for help.',
+          soporte_pitch: 'If you have any problems or questions with a downloaded code, please fill out this form for assistance:',
           form_soporte_ph: 'Description of the incident or question',
           btn_soporte: 'Request Technical Support',
-          creditos_title: 'Do you need the code without the credits?',
+          creditos_title: 'Do you need the code without the author credits?',
           creditos: "Remove the author's credits",
           creditos_desc: 'If you need to use my code without the credits, please fill out the form below:',
           form_archivo_ph: 'Name of the downloaded file',
