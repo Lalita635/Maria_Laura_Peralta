@@ -10,7 +10,7 @@ const GROSOR = 2;
 let xAnterior = 0, yAnterior = 0, xActual = 0, yActual = 0;
 const obtenerXReal = (clientX) => clientX - $canvas.getBoundingClientRect().left;
 const obtenerYReal = (clientY) => clientY - $canvas.getBoundingClientRect().top;
-let haComenzadoDibujo = false; // Bandera que indica si el usuario está presionando el botón del mouse sin soltarlo
+let haComenzadoDibujo = false;
 
 const setCredits = () => {
     const creditsElement = document.getElementById('credits');
@@ -18,20 +18,15 @@ const setCredits = () => {
 }
 
 const limpiarCanvas = () => {
-    // Colocar color blanco en fondo de canvas
     contexto.fillStyle = COLOR_FONDO;
     contexto.fillRect(0, 0, $canvas.width, $canvas.height);
 };
 limpiarCanvas();
 $btnLimpiar.onclick = limpiarCanvas;
-// Escuchar clic del botón para descargar el canvas
 $btnDescargar.onclick = () => {
     const enlace = document.createElement('a');
-    // El título
     enlace.download = "Firma.png";
-    // Convertir la imagen a Base64 y ponerlo en el enlace
     enlace.href = $canvas.toDataURL();
-    // Hacer click en él
     enlace.click();
 };
 
@@ -42,9 +37,9 @@ window.obtenerImagen = () => {
 $btnGenerarDocumento.onclick = () => {
     window.open("documento.html");
 };
-// Lo demás tiene que ver con pintar sobre el canvas en los eventos del mouse
+
+
 $canvas.addEventListener("mousedown", evento => {
-    // En este evento solo se ha iniciado el clic, así que dibujamos un punto
     xAnterior = xActual;
     yAnterior = yActual;
     xActual = obtenerXReal(evento.clientX);
@@ -53,7 +48,6 @@ $canvas.addEventListener("mousedown", evento => {
     contexto.fillStyle = COLOR_PINCEL;
     contexto.fillRect(xActual, yActual, GROSOR, GROSOR);
     contexto.closePath();
-    // Y establecemos la bandera
     haComenzadoDibujo = true;
 });
 
@@ -61,7 +55,6 @@ $canvas.addEventListener("mousemove", (evento) => {
     if (!haComenzadoDibujo) {
         return;
     }
-    // El mouse se está moviendo y el usuario está presionando el botón, así que dibujamos todo
 
     xAnterior = xActual;
     yAnterior = yActual;
@@ -82,3 +75,29 @@ $canvas.addEventListener("mousemove", (evento) => {
 });
 
 setCredits();
+
+// Soporte para pantallas táctiles
+const canvas = document.querySelector("canvas");
+const ctx = canvas.getContext("2d");
+let drawing = false;
+
+canvas.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+    drawing = true;
+    const touch = e.touches[0];
+    ctx.beginPath();
+    ctx.moveTo(touch.clientX - canvas.offsetLeft, touch.clientY - canvas.offsetTop);
+});
+
+canvas.addEventListener("touchmove", (e) => {
+    e.preventDefault();
+    if (!drawing) return;
+    const touch = e.touches[0];
+    ctx.lineTo(touch.clientX - canvas.offsetLeft, touch.clientY - canvas.offsetTop);
+    ctx.stroke();
+});
+
+canvas.addEventListener("touchend", () => {
+    drawing = false;
+});
+

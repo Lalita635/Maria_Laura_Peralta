@@ -159,6 +159,29 @@
     justify-content: center;
   }
 
+  /* Botones responsive */
+  .btn,
+  .btn.ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    flex-wrap: nowrap;
+  }
+
+  @media (max-width: 480px) {
+
+    .btn,
+    .btn.ghost {
+      width: 90%;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+  }
+
+
   /* Botonera del héroe */
   #inicio .btns {
     justify-content: center;
@@ -389,3 +412,5 @@
     background: var(--primary);
     transform: scale(1.2);
   }
+
+  

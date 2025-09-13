@@ -14,11 +14,15 @@
 		<div class="reloj" id="Minutos">:00</div>
 		<div class="reloj" id="Segundos">:00</div>
 		<div class="reloj" id="Centesimas">:00</div>
-		<input type="button" class="boton" id="inicio" value="Iniciar &#9658;" onclick="inicio();">
-		<input type="button" class="boton" id="parar" value="Detener &#8718;" onclick="parar();" disabled>
-		<input type="button" class="boton" id="continuar" value="Reanudar &#8634;" onclick="inicio();" disabled>
-		<input type="button" class="boton" id="reinicio" value="Reiniciar &#8635;" onclick="reinicio();" disabled>
 	</div>
+	<br>
+	<div id="contenedor">
+		<button class="boton" id="inicio" data-label="Iniciar" onclick="inicio();">&#9658;</button>
+		<button class="boton" id="parar" data-label="Detener" onclick="parar();">&#8718;</button>
+		<button class="boton" id="continuar" data-label="Continuar" onclick="inicio();">&#8634;</button>
+		<button class="boton" id="reinicio" data-label="Reiniciar" onclick="reinicio();">&#8635;</button>
 	<div id="credits"></div>
+	</div>
+	
 </body>
 </html>

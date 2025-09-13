@@ -77,15 +77,24 @@ document.addEventListener("DOMContentLoaded", () => {
 	};
 
 	const detener = () => {
-		if (!confirm("¿Detener?")) {
-			return;
-		}
-		clearInterval(idInterval);
-		init();
-		marcas = [];
-		dibujarMarcas();
-		diferenciaTemporal = 0;
+		Swal.fire({
+			title: localStorage.getItem("lang") === "en" ? "⏱ Stop the stopwatch?" : "⏱ ¿Detener el cronómetro?",
+			text: localStorage.getItem("lang") === "en" ? "You will lose the current recorded time." : "Perderás el tiempo registrado hasta ahora.",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonText: localStorage.getItem("lang") === "en" ? "Yes, stop" : "Sí, detener",
+			cancelButtonText: localStorage.getItem("lang") === "en" ? "Cancel" : "Cancelar"
+		}).then((result) => {
+			if (result.isConfirmed) {
+				clearInterval(idInterval);
+				init();
+				marcas = [];
+				dibujarMarcas();
+				diferenciaTemporal = 0;
+			}
+		});
 	}
+
 
 	const init = () => {
 		$tiempoTranscurrido.textContent = "00:00.0";
