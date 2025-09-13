@@ -21,6 +21,24 @@
 
   <!-- SweetAlert2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    .warning-box {
+      background: #fff3cd;
+      color: #856404;
+      border: 1px solid #ffeeba;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-family: "Inter", sans-serif;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      max-width: 310px;
+      margin: 1em auto;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+
 </head>
 
 <body>
@@ -43,13 +61,16 @@
     </div>
   </header>
 
+
   <section class="container">
+    <div class="warning-box" data-i18n="advertencia"> 🚫📱 Juego no apto para pantalla táctil </div>
     <div class="demo-box">
       <iframe src="Juegos_JS/snake/index.html"></iframe>
     </div>
 
     <div class="center-btn">
-      <a class="btn" href="https://github.com/user-attachments/files/22014320/Snake.zip" download onclick="mostrarPassword(event)">
+      <a class="btn" href="https://github.com/user-attachments/files/22014320/Snake.zip" download
+        onclick="mostrarPassword(event)">
         <i class="fas fa-file-arrow-down"></i>
         <span data-i18n="btn_download"> Obtener código</span>
       </a>
@@ -87,20 +108,20 @@
     cards.forEach(card => observer.observe(card));
 
     document.querySelectorAll('.btn[data-link]').forEach(btn => {
-  btn.addEventListener('click', function (e) {
-    const link = this.getAttribute('data-link');
+      btn.addEventListener('click', function (e) {
+        const link = this.getAttribute('data-link');
 
-    if (link.startsWith('mailto:')) {
-      window.location.href = link;
-    } else if (link.startsWith('http')) {
-      // Enlaces externos -> nueva pestaña
-      window.open(link, '_blank');
-    } else {
-      // Subpáginas internas -> misma pestaña
-      window.location.href = link;
-    }
-  });
-});
+        if (link.startsWith('mailto:')) {
+          window.location.href = link;
+        } else if (link.startsWith('http')) {
+          // Enlaces externos -> nueva pestaña
+          window.open(link, '_blank');
+        } else {
+          // Subpáginas internas -> misma pestaña
+          window.location.href = link;
+        }
+      });
+    });
 
     //Descarga
     function mostrarPassword(event) {
@@ -161,11 +182,15 @@
         es: {
           subtitle: 'Versión extendida del clásico Snake desarrollada con JavaScript y canvas HTML5. <br>El motor de juego gestiona la serpiente y el escenario mediante una matriz, incluye detección de colisiones, velocidad progresiva, renderizado por sprites y efectos de sonido al comer manzanas.',
           btn_download: ' Obtener código',
+          advertencia: ' 🚫📱 Juego no apto para pantalla táctil',
+          btn_game: 'Jugar Online',
           inicio: ' Inicio'
         },
         en: {
           subtitle: 'Extended version of the classic Snake developed with JavaScript and HTML5 canvas. <br>The game engine manages the snake and the stage using an array, including collision detection, progressive speed, sprite rendering and sound effects when eating apples.',
           btn_download: ' Get code',
+          advertencia: ' 🚫📱 Game not suitable for touch screen',
+          btn_game: 'Play Online',
           inicio: ' Home'
         }
       };

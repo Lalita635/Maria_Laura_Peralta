@@ -21,6 +21,30 @@
 
   <!-- SweetAlert2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <style>
+    .location-box,
+    .error-box {
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-family: "Inter", sans-serif;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      max-width: 450px;
+      margin: 1em auto;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .location-box {
+      background: #e7f3fe;
+      color: #0c5460;
+      border: 1px solid #b8daff;
+      text-align: center;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -43,13 +67,19 @@
     </div>
   </header>
 
+
   <section class="container">
+    <h2 class="location-box" data-i18n="ubicacion">
+      📍🔓 ubi.
+    </h2>
+
     <div class="demo-box">
-      <iframe src="Scripts_JS/climapp/index.html" scrolling="no" style="height: 300px;"></iframe>
+      <iframe src="Scripts_JS/climapp/index.html" scrolling="no" style="height: 300px;" allow="geolocation"></iframe>
     </div>
 
     <div class="center-btn">
-      <a class="btn" href="https://github.com/user-attachments/files/22048929/Climapp.zip" download onclick="mostrarPassword(event)">
+      <a class="btn" href="https://github.com/user-attachments/files/22048929/Climapp.zip" download
+        onclick="mostrarPassword(event)">
         <i class="fas fa-file-arrow-down"></i>
         <span data-i18n="btn_download"> Obtener código</span>
       </a>
@@ -87,20 +117,20 @@
     cards.forEach(card => observer.observe(card));
 
     document.querySelectorAll('.btn[data-link]').forEach(btn => {
-  btn.addEventListener('click', function (e) {
-    const link = this.getAttribute('data-link');
+      btn.addEventListener('click', function (e) {
+        const link = this.getAttribute('data-link');
 
-    if (link.startsWith('mailto:')) {
-      window.location.href = link;
-    } else if (link.startsWith('http')) {
-      // Enlaces externos -> nueva pestaña
-      window.open(link, '_blank');
-    } else {
-      // Subpáginas internas -> misma pestaña
-      window.location.href = link;
-    }
-  });
-});
+        if (link.startsWith('mailto:')) {
+          window.location.href = link;
+        } else if (link.startsWith('http')) {
+
+          window.open(link, '_blank');
+        } else {
+
+          window.location.href = link;
+        }
+      });
+    });
 
     //Descarga
     function mostrarPassword(event) {
@@ -160,11 +190,13 @@
           title: 'Portfolio - Clima actual',
           subtitle: 'El script solicita acceso a tu ubicación para mostrar el clima actual en la zona. <br>Utiliza una API gratuita de OpenWeatherMap mostrando en tiempo real los datos meteorológicos.',
           btn_download: ' Obtener código',
+          ubicacion: ' 📍🔓 Para usar esta aplicación, habilita los permisos de ubicación.',
           inicio: ' Inicio'
         },
         en: {
           title: 'Portfolio - Weather',
           subtitle: 'The script requests access to your location to display the current weather in the area. <br>Use a free OpenWeatherMap API showing real-time weather data.',
+          ubicacion: '📍🔓 To use this app, please enable location permissions.',
           btn_download: ' Get code',
           inicio: ' Home'
         }
